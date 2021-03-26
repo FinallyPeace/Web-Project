@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel</title>
+    <style>
+        body {
+            font-family: 微軟正黑體;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            color: white;
+        }
+        
+        nav {
+            display: flex;
+            flex-direction: row;
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 100vw;
+            height: 10vh;
+            position: fixed;
+        }
+        
+        nav a {
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            color: black;
+        }
+        
+        nav a:hover {
+            background-color: peachpuff;
+        }
+        
+        img {
+            padding: 20px;
+        }
+        
+        #bar {
+            width: 5vw;
+        }
+        
+        #logo {
+            padding-top: 15px;
+            width: 20vw;
+            font-size: 2em;
+        }
+        
+        #search {
+            font-size: 2em;
+            justify-content: flex-end;
+            margin: 5px 0px;
+            border: 2px solid black;
+            border-radius: 15px;
+            width: 60vw;
+        }
+        
+        #search p {
+            margin: 0px;
+            padding-top: 10px;
+        }
+        
+        #currency {
+            width: 5vw;
+        }
+        
+        #lan {
+            width: 5vw;
+        }
+        
+        #account {
+            width: 5vw;
+        }
+        
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url("image/header.jpg");
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        #slogan {}
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .destination {
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+        
+        .where {
+            display: flex;
+            flex-direction: column;
+            color: white;
+            height: 45vh;
+            background: url('image/world_bg.jpg') no-repeat center; 
+            background-attachment:fixed; 
+            background-size: cover;
+        }
+        
+        .contry {
+            text-align: left;
+            font-size: 3em;
+            height: 10vh;
+            padding: 5px 0px 0px 15px;
+        }
+        
+        .state {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            min-height: 30vh;
+        }
+        
+        .state a {
+            display: flex;
+            justify-content: center;
+            margin: 0px 2vw 0px 2vw;
+            padding: 0px;
+            width: 20vw;
+            height: 30vh;
+        }
+        
+        .state img {
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 0px;
+            width: 100%;
+            /* height: 30vh; */
+        }
+        
+        .theme {
+            background-color: goldenrod;
+            height: 90vh;
+        }
+        
+        .sale {
+            background-color: red;
+            height: 90vh;
+        }
+        
+        footer {
+            background-color: black;
+            color: white;
+            height: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="" id="bar">
+            <img src="icon/menu.png">
+        </a>
+        <a href="" id="logo">Logo</a>
+        <a href="" id="search">
+            <p>Search</p>
+            <img src="icon/search.png">
+        </a>
+        <a href="" id="currency">
+            <img src="">
+        </a>
+        <a href="" id="lan">
+            <img src="icon/language.png">
+        </a>
+        <a href="" id="account">
+            <img src="icon/user.png">
+        </a>
+    </nav>
+    <header>
+        <h1 id="Slogan">Slogan</h1>
+    </header>
+    <main>
+        <section class="destination">
+            <div class="where">
+                <div class="contry">
+                    國內
+                </div>
+                <div class="state">
+                    <a href="">
+                        <img src="image/tw_north.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/tw_central.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/tw_south.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/tw_east.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/tw_island.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="where">
+                <div class="contry">
+                    國外
+                </div>
+                <div class="state">
+                    <a href="">
+                        <img src="image/world_eu.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/world_us.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/world_jp.jpg">
+                    </a>
+                    <a href="">
+                        <img src="image/world_australia.jpg">
+                    </a>
+                    <a href=" ">
+                        <img src="image/world_africa.jpg">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="theme">
+            <h1>主題</h1>
+        </section>
+        <section class="sale">
+            <h1>Sale</h1>
+        </section>
+    </main>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</body>
+
+</html>
