@@ -28,18 +28,15 @@
             justify-content: center;
             text-decoration: none;
             color: black;
+            width: 5vw;
         }
         
         nav a:hover {
             background-color: peachpuff;
         }
         
-        img {
+        nav img {
             padding: 20px;
-        }
-        
-        #bar {
-            width: 5vw;
         }
         
         #logo {
@@ -62,31 +59,14 @@
             padding-top: 10px;
         }
         
-        #currency {
-            width: 5vw;
-        }
-        
-        #lan {
-            width: 5vw;
-        }
-        
-        #account {
-            width: 5vw;
-        }
-        
         header {
             display: flex;
             flex-direction: column;
             justify-content: center;
             min-height: 100vh;
-            background-image: url("image/header.jpg");
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background: url("image/header.jpg") no-repeat fixed center;
             background-size: cover;
         }
-        
-        #slogan {}
         
         main {
             display: flex;
@@ -94,24 +74,25 @@
             flex-grow: 1;
         }
         
-        .destination {
+        section {
             display: flex;
             flex-direction: column;
-            height: 90vh;
+            height: 100vh;
+        }
+        
+        .bar {
+            height: 10vh;
         }
         
         .where {
             display: flex;
             flex-direction: column;
-            color: white;
-            height: 45vh;
-            background: url('image/world_bg.jpg') no-repeat center; 
-            background-attachment:fixed; 
-            background-size: cover;
+            font-weight: bold;
+            height: 43vh;
         }
         
-        .contry {
-            text-align: left;
+        .country {
+            text-align: center;
             font-size: 3em;
             height: 10vh;
             padding: 5px 0px 0px 15px;
@@ -119,36 +100,44 @@
         
         .state {
             display: flex;
-            flex-direction: row;
+            flex-flow: row nowrap;
             justify-content: center;
-            min-height: 30vh;
+            align-items: center;
+            height: 30vh;
         }
         
         .state a {
             display: flex;
-            justify-content: center;
-            margin: 0px 2vw 0px 2vw;
-            padding: 0px;
-            width: 20vw;
-            height: 30vh;
+            flex-flow: row wrap;
+            margin: 1vw;
+            height: fit-content;
         }
         
         .state img {
-            border: 2px solid black;
+            border: 2px solid rgb(255, 255, 255);
             border-radius: 10px;
             padding: 0px;
-            width: 100%;
-            /* height: 30vh; */
+            width: 15vw;
+            height: 20vh;
         }
         
-        .theme {
-            background-color: goldenrod;
-            height: 90vh;
+        .state img:hover {
+            box-shadow: 0px 0px 30px rgba(0, 0, 0);
         }
-        
-        .sale {
-            background-color: red;
-            height: 90vh;
+        .card_grid {
+            display: flex;
+            flex-flow: column wrap;
+            align-content: center;
+            height: 78vh;
+        }
+        .card {
+            margin: 20px;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.88);
+            font-weight: bold;
+            min-height: 20vh;
+            width: 40%;
         }
         
         footer {
@@ -156,12 +145,18 @@
             color: white;
             height: 20vh;
         }
+        
+        @media screen and (max-width: 800px) {
+            nav img {
+                padding: 25px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav>
-        <a href="" id="bar">
+        <a href="">
             <img src="icon/menu.png">
         </a>
         <a href="" id="logo">Logo</a>
@@ -183,9 +178,11 @@
         <h1 id="Slogan">Slogan</h1>
     </header>
     <main>
-        <section class="destination">
+        <section style="background:white url('image/bg_sky.jpg') no-repeat fixed center;
+                        background-size: cover;">
+            <div class="bar"></div>
             <div class="where">
-                <div class="contry">
+                <div class="country">
                     國內
                 </div>
                 <div class="state">
@@ -207,7 +204,7 @@
                 </div>
             </div>
             <div class="where">
-                <div class="contry">
+                <div class="country">
                     國外
                 </div>
                 <div class="state">
@@ -229,11 +226,31 @@
                 </div>
             </div>
         </section>
-        <section class="theme">
-            <h1>主題</h1>
+        <section style="background:goldenrod url('image/bg_jungle.jpg') no-repeat center fixed; 
+                        background-size: cover;">
+            <div class="bar"></div>
+            <h1>本月主打</h1>
+            <div class="card_grid">
+                <div class="card">地球之肺-亞馬遜雨林遺跡探險</div>
+                <div class="card">美加邊境-尼加拉瀑布洗滌身心</div>
+                <div class="card">海底總動員-大堡礁美人魚之旅</div>
+                <div class="card">地球之肺-亞馬遜雨林遺跡探險</div>
+                <div class="card">美加邊境-尼加拉瀑布洗滌身心</div>
+                <div class="card">海底總動員-大堡礁美人魚之旅</div>
+            </div>
+
         </section>
-        <section class="sale">
+        <section style="background:red url('image/bg_sea.jpg') no-repeat center fixed; 
+                        background-size: cover;">
+            <div class="bar"></div>
             <h1>Sale</h1>
+            <div class="card_grid">
+                <div class="card">A</div>
+                <div class="card">B</div>
+                <div class="card">C</div>
+                <div class="card">D</div>
+                <div class="card">E</div>
+            </div>
         </section>
     </main>
     <footer>
