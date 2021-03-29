@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        position: fixed;
+        display: flex;
+        width: 100%;
+        background-color: rgb(38, 62, 133);
+    }
+
+    .logo {
+
+        width: 50%;
+    }
+
+    .logo img {
+        align-items: center;
+        padding: 10px;
+    }
+
+    .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 50%;
+    }
+
+    .right ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .right li {
+        display: inline-block;
+        list-style-type: none;
+        margin: 10px;
+    }
+
+
+    .right a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+
+    }
+
+    .right a:hover {
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-content a:hover {
+        color: rgb(38, 62, 133);
+        background-color: white;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgb(38, 62, 133);
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+    }
+
+    .dropdown-content a {
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+
+
+    .back {
+        background-color: chartreuse;
+        height: 80px;
+    }
+
+    .nav {
+        margin: auto;
+        display: flex;
+    }
+
+    .content {
+        height: 100vh;
+        background-size: Cover;
+        margin: auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(https://cdn.pixabay.com/photo/2015/03/09/18/34/beach-666122_1280.jpg);
+    }
+
+    .content p {
+        font-size: larger;
+        font-weight: bold;
+        padding: 100px 0px 0px 0px;
+        width: 100%;
+        color: rgb(190, 213, 233);
+        text-align: center;
+
+
+    }
+
+
+    article {
+
+        display: flex;
+        margin: auto;
+        width: 100%;
+
+        flex-wrap: wrap;
+        padding: 40px 0px;
+    }
+
+
+    .caption {
+       
+        width: 100%;
+        font-size: 24px;
+        text-align: center;
+        padding: 40px 10px 40px 10px;
+    }
+
+    .caption p {
+        padding: 20px 10px;
+        font-weight: bold;
+        color: rgb(36, 36, 36);
+        font-size: 18px;
+    }
+
+    .box {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+
+    .icon {
+        position: absolute;
+        margin: 1px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(icon/loupe.png)no-repeat;
+        background-size: 80%;
+        background-position: left;
+
+    }
+
+
+
+    .box input {
+        width: 15em;
+        height: 3vh;
+        outline: none;
+        padding-left: 30px;
+    }
+
+
+
+
+
+    .a_iteam {
+
+        text-align: center;
+        justify-content: center;
+     
+        width: 20%;
+        margin: auto;
+        padding: 40px 0px 40px 0px
+    }
+
+    .a_iteam img {
+        width: 60px;
+        height: 60px;
+        padding: 10px;
+    }
+
+
+    .domestic {
+        display: flex;
+    
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        padding: 40px 0px;
+    }
+
+    .iteam {
+        width: 100%;
+    
+        justify-content: center;
+
+
+    }
+
+
+
+    .iteam li {
+        display: inline-block;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .iteam a {
+        font-size: smaller;
+        text-decoration: none;
+        color: rgb(75, 75, 75);
+        font-weight: bold;
+    }
+
+    /* .iteam li+li::before {
+        content: '/';
+        margin: 5px;
+    } */
+
+
+
+    .ex_iteam {
+        background-color: rgb(38, 62, 133);
+        color: white;
+    }
+
+    .ex_iteam a {
+        color: white;
+    }
+
+    .iteam a:hover {
+        color: rgb(52, 83, 175);
+    }
+
+    .d_iteam {
+        width: 20%;
+        padding: 40px 0px 40px 0px;
+    
+        margin: 10px;
+    }
+
+    .d_iteam img {
+
+        width: 100%;
+
+  
+    }
+
+    .d_iteam p {
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+
+    .d_iteam li {
+        display: inline-block;
+    }
+
+    .foreign {
+        display: flex;
+      
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 40px 0px;
+        background: rgba(38, 62, 133, 0.1);
+        margin-bottom: 10px;
+
+    }
+
+    .f_iteam {
+        width: 20%;
+        padding: 40px 0px 40px 0px;
+   
+        margin: 10px;
+    }
+
+    .f_iteam img {
+
+        width: 100%;
+
+ 
+    }
+
+    .f_iteam p {
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+
+    .special {
+        display: flex;
+      
+        width: 100%;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        padding: 40px 0px;
+    }
+
+    .s_iteam {
+        width: 20%;
+        padding: 40px 0px 40px 0px;
+  
+        margin: 10px;
+    }
+
+    .s_iteam img {
+
+        width: 100%;
+    }
+
+    .s_iteam p {
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+
+    footer {
+        display: flex;
+        border: 1px solid black;
+        width: 100%;
+        flex-wrap: wrap;
+        margin: auto;
+        background-color: rgb(10, 10, 10)
+    }
+
+    .information {
+        padding: 10px 0px;
+        display: flex;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+
+    }
+
+    .left {
+        padding: 15px 0px 0px 50px;
+        color: rgb(219, 216, 216);
+        text-align: center;
+        width: 30%;
+      
+
+    }
+
+
+    .mail {
+        padding: 30px;
+        display: inline-block;
+        width: 30%;
+       
+    }
+
+    .mail input {
+
+        width: 300px;
+        height: 30px;
+
+    }
+
+    .mail button {
+        height: 30px;
+        margin: auto;
+    }
+
+    .mail button:hover {
+        background-color: rgb(38, 62, 133);
+        color: rgb(219, 216, 216);
+    }
+
+    .other {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer_iteam {
+        width: 25%;
+    
+
+    }
+
+    .footer_iteam ul {
+        list-style: none;
+    }
+
+    .footer_iteam li {
+        text-align: center;
+        padding: 3px 0px;
+    }
+
+    .footer_iteam a {
+        color: rgb(219, 216, 216);
+        text-decoration: none;
+    }
+
+    .footer_iteam h3 {
+        font-size: 20px;
+        padding: 20px 0px;
+        color: rgb(219, 216, 216);
+        text-align: center;
+    }
+
+    .line {
+        display: flex;
+        margin: auto;
+        padding: 40px;
+    }
+
+    .line hr {
+        width: 900px;
+        margin: auto;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo"><img src='http://fakeimg.pl/120x60'></div>
+        <div class="right">
+            <ul>
+                <li class="dropdown">
+                    <a href="">台幣</a>
+                    <div class="dropdown-content">
+                        <a href="#">英鎊</a>
+                        <a href="#">美元</a>
+                        <a href="#">日幣</a>
+                        <a href='#'>韓元</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">繁體中文</a>
+                    <div class="dropdown-content">
+                        <a href="#">ไทย</a>
+                        <a href="#">English</a>
+                        <a href="#">日本語</a>
+                        <a href='#'>한국어</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">主選單</a>
+                    <div class="dropdown-content">
+                        <a href="#">最新消息</a>
+                        <a href="#">國內自由行</a>
+                        <a href="#">國外自由行</a>
+                    </div>
+                <li><a href="#home">購物籃</a></li>
+                <li><a href="#home">登入/註冊</a></li>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </header>
+
+    <div class='back'></div>
+    <nav>
+        <div class='content'>
+            <p>全世界最棒的旅遊體驗</br>帶你深入探索有趣又獨特的旅遊體驗行程</p>
+            <div class="box">
+                <div class="set">
+                    <span class="icon"></span>
+                    <input type="search" id="search" placeholder="Search..." />
+                </div>
+            </div>
+        </div>
+    </nav>
+    <article>
+        <div class="caption">
+            <h1>為何選擇WoWTravel?</h1>
+        </div>
+        <div class='a_iteam'>
+            <img src="icon/like.png">
+            <h2>最專業服務團隊</h2>
+            <p> 從1950年起在各地已經深耕超過20年之久，累積超過3萬人次以上各地旅遊實績。</p>
+        </div>
+        <div class='a_iteam'>
+            <img src="icon/dollar.png">
+            <h2>一手代理最省錢</h2>
+            <p> 台灣旅遊團銷售冠軍，一手代理無中間商賺取差價，並幫您搭配最實惠機票與行程。</p>
+        </div>
+        <div class='a_iteam'>
+            <img src="icon/group.png">
+            <h2>最多優惠與贈禮</h2>
+            <p> 最多獨家熱門推薦渡假村優惠與贈禮回饋給客戶，眾多明星、網紅的選擇 ~品質有保證!</p>
+        </div>
+        <div class='a_iteam'>
+            <img src="icon/gift-box.png">
+            <h2>客製化旅遊計畫</h2>
+            <p> 公司企業、家族、親子旅遊皆可量身訂製，為您打造心中理想的旅程，皆由專人服務</p>
+        </div>
+
+    </article>
+    <section class='domestic'>
+        <div class="caption">
+
+            <h1>FUN玩台灣🎢</h1>
+            <p>城市精選</p>
+            <div class="iteam">
+                <ul>
+                    <li><a href="">東台灣</a></li>
+                    <li><a href="">南台灣</a></li>
+                    <li><a href="">西台灣</a></li>
+                    <li><a href="">北台灣</a></li>
+                    <li class='ex_iteam'><a href="">離島地區</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=2">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=3">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+    </section>
+    <section class='foreign'>
+        <div class='caption'>
+
+            <h1>樂遊全世界✈️</h1>
+            <p>預約下一趟旅程</p>
+            <div class="iteam">
+                <ul>
+                    <li class='ex_iteam'><a href="">歐洲</a></li>
+                    <li><a href="">亞洲</a></li>
+                    <li><a href="">美洲</a></li>
+                    <li><a href="">非洲</a></li>
+                    <li><a href="">大洋洲</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='f_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='f_iteam'>
+            <img src="https://picsum.photos/300/200?random=2">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='f_iteam'>
+            <img src="https://picsum.photos/300/200?random=3">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+    </section>
+    <section class='special'>
+        <div class="caption">
+
+            <h1>春暖花開🌸把握出遊好時節</h1>
+            <P>當季最夯熱銷，即刻預約美好假期！</P>
+            <div class="iteam">
+                <ul>
+
+                    <li><a href="">森呼吸．山林之旅</a></li>
+                    <li><a href="">早鳥澎湖花火節</a></li>
+                    <li><a href="">周末出發輕旅行</a></li>
+                    <li class='ex_iteam'><a href="">百花齊放</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class='s_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='d_iteam'>
+            <img src="https://picsum.photos/300/200?random=1">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='s_iteam'>
+            <img src="https://picsum.photos/300/200?random=2">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+        <div class='s_iteam'>
+            <img src="https://picsum.photos/300/200?random=3">
+            <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem repudiandae unde nisi, qui quo
+                totam.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="information">
+            <div class="left">
+                <p>即刻訂閱KKday EDM！</p>
+                <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
+                <p> 訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
+            </div>
+            <div class="mail">
+
+                <span class="mail_icon"></span>
+                <input type="search" id="search" placeholder="請輸入您的Email!" />
+                <button type="button">訂閱</button>
+            </div>
+
+        </div>
+
+        <div class="line">
+            <hr align="center" size="2" noshade="noshade" />
+        </div>
+
+
+        <div class="other">
+
+            <div class="footer_iteam">
+                <h3>認識WOWTravel</h3>
+                <ul>
+                    <li><a href="">關於WOWTrave</a></li>
+                    <li><a href="">使用者條款</a></li>
+                    <li><a href="">隱私權保護政策</a></li>
+                    <li><a href="">常見問題與幫助</a></li>
+                    <li><a href="">媒體報導</a></li>
+                </ul>
+            </div>
+            <div class="footer_iteam">
+                <h3>給旅人</h3>
+                <ul>
+                    <li><a href="">三大保證</a></li>
+                    <li><a href="">合作夥伴</a></li>
+                    <li><a href="">官方部落格</a></li>
+                    <li><a href="">會員好禮</a></li>
+                    <li><a href="">兌換贈品</a></li>
+                </ul>
+            </div>
+            <div class="footer_iteam">
+                <h3>合作夥伴</h3>
+                <ul>
+                    <li><a href="">聯盟行銷</a></li>
+                    <li><a href="">成為供應商</a></li>
+                    <li><a href="">供應商登入</a></li>
+                    <li><a href="">同業合作</a></li>
+                    <li><a href="">人才招募</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="line">
+            <hr align="center" size="2" noshade="noshade" />
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
