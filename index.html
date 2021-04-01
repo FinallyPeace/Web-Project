@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Travel</title>
+    <title>WoW Travel</title>
     <style>
         body {
             font-family: 微軟正黑體;
@@ -21,6 +21,7 @@
             width: 100vw;
             height: 10vh;
             position: fixed;
+            z-index: 1;
         }
         
         nav a {
@@ -124,32 +125,66 @@
         .state img:hover {
             box-shadow: 0px 0px 30px rgba(0, 0, 0);
         }
+        
         .card_grid {
             display: flex;
             flex-flow: column wrap;
             align-content: center;
             height: 78vh;
         }
+        
         .card {
+            display: flex;
+            flex-direction: column;
             margin: 20px;
-            border: 2px solid rgb(255, 255, 255);
             border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.88);
-            font-weight: bold;
-            min-height: 20vh;
+            height: 25%;
             width: 40%;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.88) url('image/bg_wood.jpg') no-repeat center scroll;
+            position: relative;
+        }
+        
+        .card h3 {
+            margin: 0px;
+            color: darkcyan;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px 10px 0px 0px;
+        }
+        
+        .card .p_grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .card .words {
+            margin: 0px;
+            text-align: left;
+            width: 80%;
+            height: fit-content;
+        }
+        
+        .card .words::first-letter {
+            color: seagreen;
+            font-size: larger;
+        }
+        
+        .card .money {
+            margin: 0px;
+            position: absolute;
+            right: 5px;
+            bottom: 0px;
+            width: fit-content;
+            color: goldenrod;
+            /* background-color: rgb(255, 255, 255); */
         }
         
         footer {
             background-color: black;
             color: white;
             height: 20vh;
-        }
-        
-        @media screen and (max-width: 800px) {
-            nav img {
-                padding: 25px;
-            }
         }
     </style>
 </head>
@@ -164,9 +199,7 @@
             <p>Search</p>
             <img src="icon/search.png">
         </a>
-        <a href="" id="currency">
-            <img src="">
-        </a>
+        <a href="" id="logo" style="width: 5vw;">$</a>
         <a href="" id="lan">
             <img src="icon/language.png">
         </a>
@@ -229,27 +262,120 @@
         <section style="background:goldenrod url('image/bg_jungle.jpg') no-repeat center fixed; 
                         background-size: cover;">
             <div class="bar"></div>
-            <h1>本月主打</h1>
+            <h1 style="color: white; background-color: goldenrod; width: fit-content; align-self: center; border-radius: 5px; margin: 30px;">主題旅遊-叢林派對</h1>
             <div class="card_grid">
-                <div class="card">地球之肺-亞馬遜雨林遺跡探險</div>
-                <div class="card">美加邊境-尼加拉瀑布洗滌身心</div>
-                <div class="card">海底總動員-大堡礁美人魚之旅</div>
-                <div class="card">地球之肺-亞馬遜雨林遺跡探險</div>
-                <div class="card">美加邊境-尼加拉瀑布洗滌身心</div>
-                <div class="card">海底總動員-大堡礁美人魚之旅</div>
-            </div>
+                <div class="card">
+                    <h3>巴西亞馬遜雨林 5天4夜</h3>
+                    <div class="p_grid">
+                        <p class="words">
+                            &emsp;深呼吸~ 在全世界最原始、面積最大，擁有地球之肺美名的亞馬遜雨林，來場叢林派對吧! 天堂之湖釣食人魚、尋找水豚君、公務員樹懶、獨木舟與鱷的距離
+                        </p>
+                        <p class="money">$6,0000</p>
+                    </div>
 
+                </div>
+                <div class="card">
+                    <h3>加拿大尼加拉瀑布 3天2夜</h3>
+                    <div class="p_grid">
+                        <p class="words">
+                            &emsp;洗滌身心~ 世界七大奇景之一，被旅遊雜誌評選為一生必訪的景點，配上水牛城雞翅沉浸在美加人文風情中。
+                        </p>
+                        <p class="money">$10,0000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>阿里山 3天2夜</h3>
+                    <div class="p_grid">
+                        <p class="words">
+                            &emsp;日出、鐵道小火車，還有層巒疊翠的山林綠意，變幻莫測的流雲、飛瀑，層次分明的茶園風光及原鄉人文采風等你體驗。
+                        </p>
+                        <p class="money">$5999</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>祕魯古印加文明 5天4夜</h3>
+                    <div class="p_grid">
+                        <p class="words">
+                            &emsp;遺失的古城馬丘比丘、民俗之都-的的喀喀湖畔小鎮、搭乘小飛機從高空俯瞰納斯卡線貓咪地畫。
+                        </p>
+                        <p class="money">$8,0000</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>非洲大草原 5天4夜</h3>
+                    <div class="p_grid">
+                        <p class="words">&emsp;野性在呼喚你! 在南非肯亞乘坐吉普車近距離觀看拍攝動物大遷徒。</p>
+                    </div>
+                    <p class="money">$6,0000</p>
+                </div>
+                <div class="card">
+                    <h3>太魯閣國家公園 2天1夜</h3>
+                    <div class="p_grid">
+                        <p class="words">&emsp;清水斷崖、山月吊橋、燕子口、白楊步道</p>
+                    </div>
+                    <p class="money">$7999</p>
+                </div>
+            </div>
         </section>
         <section style="background:red url('image/bg_sea.jpg') no-repeat center fixed; 
                         background-size: cover;">
             <div class="bar"></div>
-            <h1>Sale</h1>
+            <h1 style="color: white; background-color: red; margin-top: 0px;">超殺特價</h1>
             <div class="card_grid">
-                <div class="card">A</div>
-                <div class="card">B</div>
-                <div class="card">C</div>
-                <div class="card">D</div>
-                <div class="card">E</div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;">大堡礁美人魚之旅 5天4夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;海底總動員尋找尼莫!位於南太平洋澳洲東岸，有著全世界最長的珊瑚礁群。海龜、小丑魚
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;"> 4天3夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;"> 3天2夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;"> 6天5夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;"> 5天4夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
+                <div class="card" style="background: rgba(0, 0, 0, 0.88) url('image/bg_sand.jpg') no-repeat center scroll;">
+                    <h3 style="color: sandybrown;"> 6天5夜</h3>
+                    <div class="p_grid">
+                        <p>
+                            &emsp;
+                        </p>
+                        <p class="money" style="color: rgb(0, 0, 0);">$5999</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
