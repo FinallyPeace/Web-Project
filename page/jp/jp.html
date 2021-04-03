@@ -78,8 +78,8 @@
 
     section {
         margin-bottom: 20px;
-        background-color: rgb(238, 216, 224);
-        height: 80vh;
+        /* background-color: rgb(238, 216, 224); */
+        min-height: fit-content;
     }
 
     footer {
@@ -178,7 +178,7 @@
         </nav>
 
         <header class="d-flex justify-content-start">
-            <div class="Country pl-2 text-white">日本</div>
+            <div class="country pl-2 text-white">日本</div>
         </header>
 
         <main class="d-flex flex-column font-weight-bolder">
@@ -188,12 +188,12 @@
             <div class="container d-flex flex-column">
                 <h3 class="font-weight-bolder">日本自由行景點行程</h3>
                 <div class="hashtag p-2 d-flex flex-row flex-wrap">
-                    <a class="m-2 p-2 table-bordered " href="">#必訪景點</a>
+                    <a class="m-2 p-2 table-bordered " href="#attraction">#必訪景點</a>
                     <a class="m-2 p-2 table-bordered " href="">#在地美食小吃</a>
-                    <a class="m-2 p-2 table-bordered" href="">#人氣餐廳佳餚</a>
+                    <a class="m-2 p-2 table-bordered" href="">#人氣餐廳</a>
                     <a class="m-2 p-2 table-bordered" href="">#主題樂園門票</a>
                     <a class="m-2 p-2 table-bordered" href="">#交通票券</a>
-                    <a class="m-2 p-2 table-bordered" href="">#五星住宿推薦</a>
+                    <a class="m-2 p-2 table-bordered" href="">#民宿飯店</a>
                 </div>
                 <div class="row p-2 ">
                     <div class="m-2 col-4">語言: 日語、中文、英語</div>
@@ -202,75 +202,172 @@
                 <div class="p-2 w-100 d-flex justify-content-center">
                     <hr class="m-0 w-100" size="2" />
                 </div>
-                <p class="m-2 p-2">東京、大阪、北海道、沖繩、京都、福岡是台灣人日本自由行最熱門的 6 大城市。說到出國，為數眾多的台灣人都會將日本旅遊列為首選，根據觀光局統計 2016
-                    年台灣到日本的人次高達 400
-                    多萬，將近三成，顯示台灣人對於到日本旅遊的喜愛程度，而且隨著網路日益發達到日本自由行一點兒也不難，只要打打鍵盤一拖拉庫的日本景點看也看不完，這麼多的資訊，這裡都幫你整理好了，將日本旅遊城市分區做精華景點介紹，點進各城市會有更詳細的日本自由行景點懶人包攻略噢！還有
-                    AsiaYo 精選各日本旅遊城市住宿，走到哪都有物超所值日本民宿等著你，還不快立馬規劃自己的日本自由行！
+                <p class="m-2 p-2">東京、大阪、北海道是台灣人日本自由行最熱門的 3 大城市。
+                    說到出國，為數眾多的台灣人都會將日本旅遊列為首選，根據觀光局統計 2016 年台灣到日本的人次高達 400 多萬，將近三成，顯示台灣人對於到日本旅遊的喜愛程度。
+                    隨著網路日益發達到日本自由行一點兒也不難，只要打打鍵盤一拖拉庫的日本景點看也看不完，這麼多的資訊，這裡都幫你整理好了，
+                    將日本旅遊城市分區做精華景點介紹，點進各城市會有更詳細的日本自由行景點懶人包攻略噢！
+                    還有精選各景點美食、樂園門票、交通、住宿，還不快立馬規劃自己的日本自由行！
                 </p>
             </div>
         </main>
-        <section class="container d-flex flex-column">
-            <div class="card m-4">
-                <div class="card-header">
 
+        <section class="container d-flex flex-column" id="attraction">
+            <div class="card mb-4 bg-dark text-white">
+                <img src="image/必訪景點.jpg" class="card-img" style="width: 100%; height: 300px">
+                <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
+                    <h3 class="card-title">必訪景點</h3>
+                    <p class="card-text">前進日本體驗在地文化活動，參訪當地歷史古蹟、節慶表演、穿著和服，體驗當地居民的生活模式。</p>
                 </div>
             </div>
-        </section>
+            <div class="row d-flex flex-row flex-wrap">
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/東京_淺草雷門.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【東京】 淺草雷門</h5>
+                            <p class="card-text">
+                                以東京最古老寺廟「淺草寺」為中心，淺草在江戶時代曾是東京最繁榮的一條街，保留了東京為數不多的江戶下町氛圍，這裡可說是最熱門的東京旅遊景點啦！
+                            </p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted ">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/東京_晴空塔.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【東京】 晴空塔</h5>
+                            <p class="card-text">
+                                晴空塔可說是東京頭號地標，塔高達634公尺，是現今世界第二高塔，除了可以俯瞰整個東京市區的觀景台外，更有Pokemon專賣店，絕對是遊客來東京必去景點之一。
+                            </p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted ">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/東京_河口湖.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【東京】 河口湖</h5>
+                            <p class="card-text">河口湖是位於山梨縣富士河口湖町的湖泊，為富士五湖之一，天氣晴朗時湖中富士山倒影相映為一絕景。</p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/大阪_道頓堀.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【大阪】 道頓堀</h5>
+                            <p class="card-text">
+                                一提到大阪有名的觀光景點，大家都會想到「道頓堀」吧。光是逛街就能感受到大阪商人熱情和活力的道頓堀，可謂大阪必遊景點！在有名的巨大招牌前拍記念照、品嚐當地美食，坐船觀光以及心齋橋商店街血拼。
+                            </p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted pr-2 ">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/京都_稻荷神社.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【京都】 伏見稻荷神社</h5>
+                            <p class="card-text">走進看不到盡頭的神祕千本鳥居！外國人訪日人氣NO.1的伏見稻荷大社</p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2 col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="image/奈良_鹿.jpg" style="width: 100%;">
+                        <div class="card-body">
+                            <h5 class="card-title">【奈良】 公園餵鹿</h5>
+                            <p class="card-text">奈良曾是日本首都的所在地，也是個距離京都和大阪都很近的旅遊名勝。奈良的歷史比京都還要悠久，整個街道都仍保留著傳統的景色。這裡最吸引人的地方就是有一群超可愛的鹿等著你餵餅。</p>
+                            <p class="card-text d-flex justify-content-end align-items-center">
+                                <small class="pr-2 text-muted">TWD 1,0000</small>
+                                <a href="" class="btn btn-link text-white text-decoration-none"
+                                    style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
 
 
-        <footer class="w-100 d-flex flex-wrap">
-            <div class="information d-flex flex-column align-items-center">
-                <div class="info_left">
-                    <p>即刻訂閱WoW Travel！</p>
-                    <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
-                    <p>訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
-                </div>
-                <div class="mail">
-                    <span class="mail_icon"></span>
-                    <input type="search" id="search" placeholder="請輸入您的Email!" />
-                    <button type="button">訂閱</button>
-                </div>
+    <footer class="w-100 d-flex flex-wrap">
+        <div class="information d-flex flex-column align-items-center">
+            <div class="info_left">
+                <p>即刻訂閱WoW Travel！</p>
+                <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
+                <p>訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
             </div>
+            <div class="mail">
+                <span class="mail_icon"></span>
+                <input type="search" id="search" placeholder="請輸入您的Email!" />
+                <button type="button">訂閱</button>
+            </div>
+        </div>
 
-            <div class="line m-0 p-4 w-100 d-flex justify-content-center">
-                <hr class="m-0 w-75" size="2" noshade="noshade" />
+        <div class="line m-0 p-4 w-100 d-flex justify-content-center">
+            <hr class="m-0 w-75" size="2" noshade="noshade" />
+        </div>
+        <div class="other">
+            <div class="footer_item">
+                <h3>認識 WoW Travel</h3>
+                <ul class="list-unstyled">
+                    <li><a href="">關於WOWTrave</a></li>
+                    <li><a href="">使用者條款</a></li>
+                    <li><a href="">隱私權保護政策</a></li>
+                    <li><a href="">常見問題與幫助</a></li>
+                    <li><a href="">媒體報導</a></li>
+                </ul>
             </div>
-            <div class="other">
-                <div class="footer_item">
-                    <h3>認識 WoW Travel</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="">關於WOWTrave</a></li>
-                        <li><a href="">使用者條款</a></li>
-                        <li><a href="">隱私權保護政策</a></li>
-                        <li><a href="">常見問題與幫助</a></li>
-                        <li><a href="">媒體報導</a></li>
-                    </ul>
-                </div>
-                <div class="footer_item">
-                    <h3>給旅人</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="">三大保證</a></li>
-                        <li><a href="">合作夥伴</a></li>
-                        <li><a href="">官方部落格</a></li>
-                        <li><a href="">會員好禮</a></li>
-                        <li><a href="">兌換贈品</a></li>
-                    </ul>
-                </div>
-                <div class="footer_item">
-                    <h3>合作夥伴</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="">聯盟行銷</a></li>
-                        <li><a href="">成為供應商</a></li>
-                        <li><a href="">供應商登入</a></li>
-                        <li><a href="">同業合作</a></li>
-                        <li><a href="">人才招募</a></li>
-                    </ul>
-                </div>
+            <div class="footer_item">
+                <h3>給旅人</h3>
+                <ul class="list-unstyled">
+                    <li><a href="">三大保證</a></li>
+                    <li><a href="">合作夥伴</a></li>
+                    <li><a href="">官方部落格</a></li>
+                    <li><a href="">會員好禮</a></li>
+                    <li><a href="">兌換贈品</a></li>
+                </ul>
             </div>
-            <div class="line p-4 w-100 d-flex justify-content-center">
-                <hr class="m-0 w-75" size="2" noshade="noshade" />
+            <div class="footer_item">
+                <h3>合作夥伴</h3>
+                <ul class="list-unstyled">
+                    <li><a href="">聯盟行銷</a></li>
+                    <li><a href="">成為供應商</a></li>
+                    <li><a href="">供應商登入</a></li>
+                    <li><a href="">同業合作</a></li>
+                    <li><a href="">人才招募</a></li>
+                </ul>
             </div>
-        </footer>
+        </div>
+        <div class="line p-4 w-100 d-flex justify-content-center">
+            <hr class="m-0 w-75" size="2" noshade="noshade" />
+        </div>
+    </footer>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
