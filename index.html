@@ -116,11 +116,11 @@
 
 
     article {
-
         display: flex;
         margin: auto;
         width: 100%;
         flex-wrap: wrap;
+        justify-content: center;
         padding: 40px 0px;
     }
 
@@ -174,25 +174,29 @@
         font-size: 2em;
     }
 
-
-    .a_iteam {
-        text-align: center;
-        justify-content: center;
+    .item {
         width: 20%;
+        margin: 10px;
+        position: relative;
+        z-index: -1;
+        text-align: center;
+
+    }
+
+    .wrap {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-items: center;
+
+    }
+
+
+
+    #item_icon {
+        width: 30%;
         margin: auto;
-        padding: 40px 0px 40px 0px
-    }
-
-    .a_iteam h2 {
-        font-size: 2em;
-        padding: 10px 0px
-    }
-
-    .a_iteam img {
-        font-size: 1em;
-        width: 60px;
-        height: 60px;
-        padding: 10px;
+        padding: 0px 0px 15px;
     }
 
 
@@ -243,21 +247,9 @@
     }
 
 
-
-    .item {
-        width: 20%;
-        margin: 10px;
-        border: 1px solid black;
-        position: relative;
-        z-index: -1;
-
-    }
-
-    .wrap {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-
+    .wrap p {
+        padding: 10px;
+        font-size: 2vh;
     }
 
 
@@ -364,10 +356,16 @@
 
     footer {
         display: flex;
-        width: 100%;
         flex-wrap: wrap;
         margin: auto;
         background-color: rgb(10, 10, 10)
+    }
+
+    .footer_bottom {
+        color: azure;
+    
+        margin: auto;
+        padding: 10px 0px 20px;
     }
 
     .information {
@@ -450,6 +448,7 @@
         display: flex;
         margin: auto;
         padding: 40px;
+        width: 100%;
     }
 
     .line hr {
@@ -512,25 +511,33 @@
         <div class="caption">
             <h1>為何選擇WoWTravel?</h1>
         </div>
-        <div class='a_iteam'>
-            <img src="icon/teamwork.png">
-            <h2>最專業服務團隊</h2>
-            <p> 從1950年起在各地已經深耕超過20年之久，累積超過3萬人次以上各地旅遊實績。</p>
+        <div class='item'>
+            <div class="wrap">
+                <img src="icon/teamwork.png" id='item_icon'>
+                <h2>最專業服務團隊</h2>
+                <p> 從1950年起在各地已經深耕超過20年之久，累積超過3萬人次以上各地旅遊實績。</p>
+            </div>
         </div>
-        <div class='a_iteam'>
-            <img src="icon/salary.png">
-            <h2>一手代理最省錢</h2>
-            <p> 台灣旅遊團銷售冠軍，一手代理無中間商賺取差價，並幫您搭配最實惠機票與行程。</p>
+        <div class='item'>
+            <div class="wrap">
+                <img src="icon/salary.png" id='item_icon'>
+                <h2>一手代理最省錢</h2>
+                <p> 台灣旅遊團銷售冠軍，一手代理無中間商賺取差價，並幫您搭配最實惠機票與行程。</p>
+            </div>
         </div>
-        <div class='a_iteam'>
-            <img src="icon/gift-box (2).png">
-            <h2>最多優惠與贈禮</h2>
-            <p> 最多獨家熱門推薦渡假村優惠與贈禮回饋給客戶，眾多明星、網紅的選擇 ~品質有保證!</p>
+        <div class='item'>
+            <div class="wrap">
+                <img src="icon/gift-box (2).png" id='item_icon'>
+                <h2>最多優惠與贈禮</h2>
+                <p> 最多獨家熱門推薦渡假村優惠與贈禮回饋給客戶，眾多明星、網紅的選擇~品質有保證!</p>
+            </div>
         </div>
-        <div class='a_iteam'>
-            <img src="icon/customer-service.png">
-            <h2>客製化旅遊計畫</h2>
-            <p> 公司企業、家族、親子旅遊皆可量身訂製，為您打造心中理想的旅程，皆由專人服務</p>
+        <div class='item'>
+            <div class="wrap">
+                <img src="icon/customer-service.png" id='item_icon'>
+                <h2>客製化旅遊計畫</h2>
+                <p> 公司企業、家族、親子旅遊皆可量身訂製，為您打造心中理想的旅程，皆由專人服務</p>
+            </div>
         </div>
 
     </article>
@@ -824,6 +831,9 @@
         </div>
         <div class="line">
             <hr align="center" size="2" noshade="noshade" />
+        </div>
+        <div class="footer_bottom">
+            &copy;copyright 2021 by wow3cteam
         </div>
     </footer>
 </body>
