@@ -10,47 +10,21 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            position: relative;
-            display: flex;
-            width: 100%;
+         header {
             background-color: rgb(38, 62, 133);
-            z-index: 3;
-        }
-        
-        .logo {
-            width: 25%;
+            z-index: 2;
         }
         
         .logo img {
-            align-items: center;
             padding: 10px;
+            max-width: 100%;
         }
         
-        .right {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            width: 75%;
-        }
-        
-        .right ul {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .right li {
-            display: inline-block;
-            list-style-type: none;
+        .nav_right li {
             margin: 10px;
         }
         
-        .right a {
+        .nav_right a {
             display: block;
             color: white;
             text-align: center;
@@ -58,13 +32,8 @@
             text-decoration: none;
         }
         
-        .right a:hover {
+        .nav_right a:hover {
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dropdown-content a:hover {
-            color: rgb(38, 62, 133);
-            background-color: white;
         }
         
         .dropdown-content {
@@ -83,15 +52,17 @@
             text-align: center;
         }
         
+        .dropdown-content a:hover {
+            color: rgb(38, 62, 133);
+            background-color: white;
+        }
+        
         .dropdown:hover .dropdown-content {
             display: block;
         }
         
+        
         footer {
-            display: flex;
-            width: 100%;
-            flex-wrap: wrap;
-            margin: auto;
             background-color: rgb(10, 10, 10)
         }
         
@@ -103,27 +74,14 @@
             justify-content: center;
         }
         
-        .left {
-            padding: 15px 0px 0px 50px;
+        .info_left {
+            padding: 15px 0px;
             color: rgb(219, 216, 216);
             text-align: center;
-            width: 30%;
         }
         
-        .mail {
-            padding: 30px;
-            display: inline-block;
-            width: 30%;
-        }
-        
-        .mail input {
-            width: 300px;
-            height: 30px;
-        }
-        
-        .mail button {
-            height: 30px;
-            margin: auto;
+        #search {
+            height: fit-content;
         }
         
         .mail button:hover {
@@ -141,13 +99,9 @@
             width: 25%;
         }
         
-        .footer_item ul {
-            list-style: none;
-        }
-        
         .footer_item li {
             text-align: center;
-            padding: 3px 0px;
+            padding: 0px;
         }
         
         .footer_item a {
@@ -160,17 +114,6 @@
             padding: 20px 0px;
             color: rgb(219, 216, 216);
             text-align: center;
-        }
-        
-        .line {
-            display: flex;
-            margin: auto;
-            padding: 40px;
-        }
-        
-        .line hr {
-            width: 900px;
-            margin: auto;
         }
         /* 以下為新增 */
         /*nav*/
@@ -269,11 +212,13 @@
 
 <body>
     <!---下方為header--->
-    <header>
-        <div class="logo"><img src='http://fakeimg.pl/120x60'></div>
-        <div class="right">
-            <ul>
-                <li class="dropdown">
+    <header class="nav w-100 d-flex flex-row flex-nowrap position-relative">
+        <div class="logo w-25">
+            <img src='http://fakeimg.pl/120x60'>
+        </div>
+        <div class="nav_right w-75 d-flex justify-content-end align-content-center">
+            <ul class="m-0 p-0 list-unstyled d-flex flex-row flex-nowrap">
+                <li class="dropdown d-inline-block">
                     <a href="">台幣</a>
                     <div class="dropdown-content">
                         <a href="#">英鎊</a>
@@ -282,7 +227,7 @@
                         <a href='#'>韓元</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown d-inline-block">
                     <a href="">繁體中文</a>
                     <div class="dropdown-content">
                         <a href="#">ไทย</a>
@@ -291,20 +236,20 @@
                         <a href='#'>한국어</a>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown d-inline-block">
                     <a href="">主選單</a>
                     <div class="dropdown-content">
                         <a href="#">最新消息</a>
                         <a href="#">國內自由行</a>
                         <a href="#">國外自由行</a>
                     </div>
-                    <li><a href="#home">購物籃</a></li>
-                    <li><a href="#home">登入/註冊</a></li>
                 </li>
+                <li class="d-inline-block"><a href="#home">購物籃</a></li>
+                <li class="d-inline-block"><a href="#home">登入/註冊</a></li>
             </ul>
         </div>
-        </div>
     </header>
+
 
     <!---下方為nav--->
 
@@ -404,7 +349,7 @@
                             <div class="m-1"><small>產品代碼 : 20210413 最少2天 1夜 ，最多1002天 1001夜</small></div>
                         </div>
 
-                        <div>
+                        <div class="col-12">
                             <div class="m-2 h5"><img src="../icon/airplane.jpg"><strong class="pl-2">交通-航空</strong></div>
                             <div class="border border-dark mb-2">
                                 <div class="m-3 h5"><strong>去程 - 請選擇</strong></div>
@@ -436,11 +381,9 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div></div>
-                                <div></div>
                             </div>
 
-                            <div class="border border-dark">
+                            <div class="border border-dark m-0">
                                 <div class="m-3 h5"><strong>回程 - 請選擇</strong></div>
                                 <div class="row mb-3">
                                     <div class="col-xl-5 col-8">
@@ -470,10 +413,9 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div></div>
-                                <div></div>
                             </div>
                         </div>
+                        
                         <div>
                             <div class="m-2 h5"><img src="../icon/hotel.png"><strong class="pl-2">飯店</strong></div>
                             <div class="border border-dark">
@@ -755,31 +697,27 @@
 
     <!---下方為footer--->
 
-    <footer>
-        <div class="information">
-            <div class="left">
-                <p>即刻訂閱KKday EDM！</p>
+    <footer class="w-100 d-flex flex-wrap">
+        <div class="information d-flex flex-column align-items-center">
+            <div class="info_left">
+                <p>即刻訂閱WoW Travel！</p>
                 <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
-                <p> 訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
+                <p>訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
             </div>
             <div class="mail">
-
                 <span class="mail_icon"></span>
                 <input type="search" id="search" placeholder="請輸入您的Email!" />
                 <button type="button">訂閱</button>
             </div>
-
         </div>
 
-        <div class="line">
-            <hr align="center" size="2" noshade="noshade" />
+        <div class="line m-0 p-4 w-100 d-flex justify-content-center">
+            <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
-
         <div class="other">
-
             <div class="footer_item">
-                <h3>認識WOWTravel</h3>
-                <ul>
+                <h3>認識 WoW Travel</h3>
+                <ul class="list-unstyled">
                     <li><a href="">關於WOWTrave</a></li>
                     <li><a href="">使用者條款</a></li>
                     <li><a href="">隱私權保護政策</a></li>
@@ -789,7 +727,7 @@
             </div>
             <div class="footer_item">
                 <h3>給旅人</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li><a href="">三大保證</a></li>
                     <li><a href="">合作夥伴</a></li>
                     <li><a href="">官方部落格</a></li>
@@ -799,7 +737,7 @@
             </div>
             <div class="footer_item">
                 <h3>合作夥伴</h3>
-                <ul>
+                <ul class="list-unstyled">
                     <li><a href="">聯盟行銷</a></li>
                     <li><a href="">成為供應商</a></li>
                     <li><a href="">供應商登入</a></li>
@@ -807,10 +745,9 @@
                     <li><a href="">人才招募</a></li>
                 </ul>
             </div>
-
         </div>
-        <div class="line">
-            <hr align="center" size="2" noshade="noshade" />
+        <div class="line p-4 w-100 d-flex justify-content-center">
+            <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
     </footer>
 
