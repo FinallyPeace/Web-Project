@@ -10,6 +10,7 @@
     <title>日本旅遊</title>
     <style>
         nav {
+            top: 0px;
             background-color: rgb(38, 62, 133);
             z-index: 2;
         }
@@ -62,11 +63,13 @@
         
         header {
             position: relative;
-            background: url("image/bg_jp.jpg") center;
+            background:rgba(0, 0, 0, .1) url("image/bg_jp.jpg") center;
+            background-blend-mode: multiply;
             background-size: cover;
             height: 300px;
             font-size: 5rem;
             font-weight: bolder;
+            margin-top: 80px;
         }
         
         main {
@@ -77,6 +80,28 @@
         
         section {
             min-height: fit-content;
+        }
+        
+        .card {
+            border: 1px solid pink;
+        }
+        
+        .card-title {
+            font-weight: bolder;
+        }
+        
+        .card-text {
+            height: 60px;
+        }
+        
+        .btn-link {
+            background-color:#ff6781 ;
+            color:#ffffff;
+        }
+        
+        .btn-link:hover {
+            background-color: #ffb8c6;
+            color:#ff6781;
         }
         
         footer {
@@ -136,7 +161,7 @@
 </head>
 
 <body class="container-fluid m-0 p-0">
-    <nav class="nav w-100 d-flex flex-row flex-nowrap position-relative">
+    <nav class="w-100 d-flex flex-row flex-nowrap position-fixed">
         <div class="logo w-25">
             <img src='http://fakeimg.pl/120x60'>
         </div>
@@ -168,7 +193,7 @@
                         <a href="#">國外自由行</a>
                     </div>
                 </li>
-                <li class="d-inline-block"><a href="#home">購物籃</a></li>
+                <li class="d-inline-block"><a href="#home">我的行程</a></li>
                 <li class="d-inline-block"><a href="#home">登入/註冊</a></li>
             </ul>
         </div>
@@ -179,11 +204,11 @@
     </header>
 
     <main class="d-flex flex-column font-weight-bolder">
-        <div class="d-flex justify-content-end">
-            <div type="button" class="btn m-2 btn-danger"> ♡ 收藏</div>
-        </div>
         <div class="container d-flex flex-column">
-            <h3 class="font-weight-bolder">日本自由行景點行程</h3>
+            <div class="mt-3 d-flex align-items-center">
+                <h3 class="m-2 font-weight-bolder">日本自由行景點行程</h3>
+                <div type="button" class="btn my-2 btn-danger"> ♡ 收藏</div>
+            </div>
             <div class="hashtag p-2 d-flex flex-row flex-wrap">
                 <a class="m-2 p-2 table-bordered " href="#attraction">#必訪景點</a>
                 <a class="m-2 p-2 table-bordered " href="#local_snacks">#在地美食小吃</a>
@@ -192,9 +217,9 @@
                 <a class="m-2 p-2 table-bordered" href="#transportation">#交通票券</a>
                 <a class="m-2 p-2 table-bordered" href="#hotel">#民宿飯店</a>
             </div>
-            <div class="row p-2 ">
-                <div class="m-2 col-4">語言: 日語、中文、英語</div>
-                <div class="m-2 col-4">電壓: 100 伏特 / 50 赫茲</div>
+            <div class="row m-2 p-2 ">
+                <div class="col-6 col-md-5 col-lg-3">語言: 日語、中文、英語</div>
+                <div class="col-6 col-md-5 col-lg-3">電壓: 100 伏特 / 50 赫茲</div>
             </div>
             <div class="p-2 w-100 d-flex justify-content-center">
                 <hr class="m-0 w-100" size="2" />
@@ -205,7 +230,7 @@
     </main>
 
     <section id="attraction" class="container mb-2 d-flex flex-column">
-        <div class="card mb-4 bg-dark text-white">
+        <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .5) url('image/必訪景點.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
@@ -220,11 +245,11 @@
                     <div class="card-body">
                         <h5 class="card-title">【東京】 淺草雷門</h5>
                         <p class="card-text">
-                            以東京最古老寺廟「淺草寺」為中心，淺草在江戶時代曾是東京最繁榮的一條街，保留了東京為數不多的江戶下町氛圍，這裡可說是最熱門的東京旅遊景點啦！
+                            淺草在江戶時代曾是東京最繁榮的一條街，保留了東京為數不多的江戶下町氛圍，這裡可說是最熱門的東京旅遊景點！
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -235,11 +260,11 @@
                     <div class="card-body">
                         <h5 class="card-title">【東京】 晴空塔</h5>
                         <p class="card-text">
-                            晴空塔可說是東京頭號地標，塔高達634公尺，是現今世界第二高塔，除了可以俯瞰整個東京市區的觀景台外，更有Pokemon專賣店，絕對是遊客來東京必去景點之一。
+                            晴空塔可說是東京頭號地標，是現今世界第二高塔！俯瞰整個東京市區的景觀，絕對是遊客來東京必去景點之一。
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -250,9 +275,9 @@
                     <div class="card-body">
                         <h5 class="card-title">【東京】 河口湖</h5>
                         <p class="card-text">河口湖是位於山梨縣富士河口湖町的湖泊，為富士五湖之一，天氣晴朗時湖中富士山倒影相映為一絕景。</p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -263,11 +288,11 @@
                     <div class="card-body">
                         <h5 class="card-title">【大阪】 道頓堀</h5>
                         <p class="card-text">
-                            一提到大阪有名的觀光景點，大家都會想到「道頓堀」吧。光是逛街就能感受到大阪商人熱情和活力的道頓堀，可謂大阪必遊景點！在有名的巨大招牌前拍記念照、品嚐當地美食，坐船觀光以及心齋橋商店街血拼。
+                            光是逛街就能感受到大阪人熱情和活力的道頓堀，可謂大阪必遊景點！在有名的巨大招牌前拍記念照、品嚐當地美食，坐船觀光以及商店街血拼。
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -277,10 +302,10 @@
                     <img class="card-img-top" src="image/必訪景點_京都_稻荷神社.jpg" style="width: 100%;">
                     <div class="card-body">
                         <h5 class="card-title">【京都】 伏見稻荷神社</h5>
-                        <p class="card-text">走進看不到盡頭的神祕千本鳥居！外國人訪日人氣NO.1的伏見稻荷大社</p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text">走進看不到盡頭的神祕千本鳥居！外國人訪日人氣NO.1的伏見稻荷大社。</p>
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -291,11 +316,11 @@
                     <div class="card-body">
                         <h5 class="card-title">【奈良】 公園餵鹿</h5>
                         <p class="card-text">
-                            奈良曾是日本首都的所在地，也是個距離京都和大阪都很近的旅遊名勝。奈良的歷史比京都還要悠久，整個街道都仍保留著傳統的景色。這裡最吸引人的地方就是有一群超可愛的鹿等著你餵餅。
+                            奈良曾是日本首都的所在地，也是個距離京都和大阪都很近的旅遊名勝，這裡最吸引人的地方就是有一群超可愛的鹿等著你餵餅。
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -307,7 +332,7 @@
     </section>
 
     <section id="local_snacks" class="container mb-2 d-flex flex-column">
-        <div class="card mb-4 bg-dark text-white">
+        <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .5) url('image/在地美食小吃.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
@@ -324,9 +349,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -339,9 +364,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -354,9 +379,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -369,9 +394,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -384,9 +409,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -397,9 +422,9 @@
                     <div class="card-body">
                         <h5 class="card-title">【京都】 祇園 抹茶甜點</h5>
                         <p class="card-text">...</p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -411,7 +436,7 @@
     </section>
 
     <section id="shopping" class="container mb-2 d-flex flex-column">
-        <div class="card mb-4 bg-dark text-white">
+        <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .5) url('image/購物.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
@@ -428,9 +453,9 @@
                         <p class="card-text">
                             零食、泡麵
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 8000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -443,9 +468,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 600</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -458,9 +483,9 @@
                         <p class="card-text">
                             廚房小家電、美容電器、Dyson吸塵器
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 770</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入行程</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -472,7 +497,7 @@
     </section>
 
     <section id="theme_park" class="container mb-2 d-flex flex-column">
-        <div class="card mb-4 bg-dark text-white">
+        <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .5) url('image/主題樂園.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
@@ -489,9 +514,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入購物車</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -504,9 +529,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 1,0000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入購物車</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -518,7 +543,7 @@
     </section>
 
     <section id="transportation" class="container mb-2 d-flex flex-column">
-        <div class="card mb-4 bg-dark text-white">
+        <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .3) url('image/交通.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
@@ -535,9 +560,9 @@
                         <p class="card-text">
                             ...
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted ">TWD 8000</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入購物車</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -550,9 +575,9 @@
                         <p class="card-text">
                             ICOCA就像是台灣的「悠遊卡」和「一卡通」，每次搭乘大眾交通工具只需朝感應機碰一下，就能輕鬆地搭車及購物。
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 600</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入購物車</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -565,9 +590,9 @@
                         <p class="card-text">
                             1天內可無限次搭乘大阪地鐵、大阪公車全線或指定範圍內私鐵路線，並可免費參觀50處以上著名景點及設施。
                         </p>
-                        <p class="card-text d-flex justify-content-end align-items-center">
+                        <p class="card-text d-flex justify-content-end align-items-end">
                             <small class="pr-2 text-muted pr-2 ">TWD 770</small>
-                            <a href="" class="btn btn-link text-white text-decoration-none" style="background-color:rgb(38, 62, 133);">加入購物車</a>
+                            <a href="" class="btn btn-link text-decoration-none">加入行程</a>
                         </p>
                     </div>
                 </div>
