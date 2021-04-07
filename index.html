@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>旅遊網站</title>
+    <title>WOW Travel</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@900&display=swap" rel="stylesheet">
     <style type="text/css">
@@ -14,22 +14,22 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin: 0;
+            margin: 0 auto;
+            min-width: 1000px;
         }
         /* 以下為header */
         
         #header {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             height: 80px;
             width: 100%;
             background-color: white;
             color: black;
-            min-width: 900px;
         }
-        
-        .logo {
+
+        #logo img {
             width: 150px;
         }
         
@@ -46,8 +46,7 @@
             justify-content: space-around;
             align-items: center;
             height: 35px;
-            width: 70vw;
-            min-width: 650px;
+            width: 70%;
             align-self: flex-end;
         }
         
@@ -70,9 +69,8 @@
             background-repeat: no-repeat;
             background-position: center;
             height: 500px;
-            width: 90vw;
+            width: 90%;
             margin: 0;
-            min-width: 900px;
         }
         /* 以下為main */
         
@@ -80,11 +78,10 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            width: 100vw;
+            width: 100%;
             background-color: rgb(255, 255, 255);
             justify-content: center;
             flex-wrap: nowrap;
-            min-width: 900px;
         }
         
         .domestic,
@@ -103,20 +100,22 @@
             background-color: #f4f6f7;
         }
         
-        .title {
+        .title,
+        .title_2 {
             display: flex;
+            width: 1100px
+        }
+        
+        .title {
             flex-direction: row;
             justify-content: space-around;
             align-items: baseline;
-            width: 70vw;
         }
         
         .title_2 {
-            display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: start;
-            width: 70vw;
         }
         
         .main {
@@ -182,7 +181,6 @@
             align-items: center;
             min-width: 50%;
             flex-wrap: nowrap;
-
         }
         
         .especially_branch p,
@@ -195,160 +193,167 @@
         }
         /* 以下為footer */
         
-        #footer {
+        footer {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
             min-height: 80px;
-            width: 100vw;
-            min-width: 1000px;
+            width: 100%;
             background-color: #f4f6f7;
+        }
+        
+        #message {
+            min-width: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <header id="header">
-            <div>
-                <a href="#"><img class="logo" src="./image/logo-social.png"></a>
-            </div>
-            <nav id="label">
-                <tr id="menu">
-                    <td><a href="#">國內旅遊</a></td>
-                    <td><a href="#">國外旅遊</a></td>
-                    <td><a href="#">票券訂購</a></td>
-                    <td><a href="#">全球訂房</a></td>
-                    <td><a href="#">特別企劃</a></td>
-                    <td><a href="#">最新優惠</a></td>
-                    <td><a href="#">關於我們</a></td>
-                </tr>
-            </nav>
-            <div class="totop">
-                <a href="#top"><img src="./image/fadetop.png"></a>
-            </div>
-        </header>
-    </div>
-    <div>
-        <figure class="image"></figure>
-    </div>
-    <div>
-        <main id="species">
-            <div class="domestic">
-                <section>
-                    <div class="title">
-                        <div class="main">
-                            <h1>國內旅遊</h1>
-                        </div>
-                        <div class="secondary">
-                            <p><a href="#">北部地區</a></p>
-                            <p><a href="#">中部地區</a></p>
-                            <p><a href="#">南部地區</a></p>
-                            <p><a href="#">東部地區</a></p>
-                            <p><a href="#">外島地區</a></p>
-                        </div>
-                    </div>
-                    <div class="picture">
-                        <p>
-                            <a href="#"><img src="./image/tw/101-1.jpg"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/tw/Love_river.jpg"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/tw/Yilan.jpg"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/tw/Penghu.jpg"></a>
-                        </p>
-                    </div>
-                </section>
-            </div>
-            <div class="foreign">
-                <section>
-                    <div class="title">
-                        <div class="main">
-                            <h1>國外旅遊</h1>
-                        </div>
-                        <div class="secondary">
-                            <p><a href="#">亞洲</a></p>
-                            <p><a href="#">歐洲</a></p>
-                            <p><a href="#">美洲</a></p>
-                            <p><a href="#">非洲</a></p>
-                            <p><a href="#">大洋洲</a></p>
-                            <p><a href="#">南極洲</a></p>
-                        </div>
-                    </div>
-                    <div class="picture">
-                        <p>
-                            <a href="#"><img src="./image/USA.jpg"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/Venice.jfif"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/Nouvelle-Calédonie.jfif"></a>
-                        </p>
-                        <p>
-                            <a href="#"><img src="./image/photo-1501446529957-6226bd447c46.jfif"></a>
-                        </p>
-                    </div>
-                </section>
-            </div>
-            <div class="especially">
-                <section>
-                    <div class="title_2">
-                        <div class="main">
-                            <h1>特別企劃</h1>
-                        </div>
-                        <div class="picture_2">
-                            <div class="especially_branch">
-                                <p>
-                                    <a href="#"><img src="./image/tw/八卦山.jpg"></a>
-                                </p>
-                                <p class="value">即日起從自家開始出發，步行到八卦山全程免費。</p>
-                            </div>
-                            <div class="especially_branch">
-                                <p>
-                                    <a href="#"><img src="./image/tw/綠島.jpg"></a>
-                                </p>
-                                <p class="value">即日起從自家為出發點，步行至台東縣富岡漁港，再游泳到綠島，即可獲得喝不完的海水。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="new">
-                <section>
-                    <div class="title_2">
-                        <div class="main">
-                            <h1>最新優惠</h1>
-                        </div>
-                        <div class="picture_2">
-                            <div class="new_branch">
-                                <p>
-                                    <a href="#"><img src="./image/tw/八卦山.jpg"></a>
-                                </p>
-                                <p class="value">即日起從自家開始出發，步行到八卦山全程免費。</p>
-                            </div>
-                            <div class="new_branch">
-                                <p>
-                                    <a href="#"><img src="./image/tw/綠島.jpg"></a>
-                                </p>
-                                <p class="value">即日起從自家為出發點，步行至台東縣富岡漁港，再游泳到綠島，即可獲得喝不完的海水。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
-    </div>
 
-    <footer id="footer">
-        <p>聯絡人：不知道</p>
-        <p>連絡電話：未知</p>
-        <p>聯絡地址：無</p>
+    <header id="header">
+        <div id="logo">
+            <a href="#"><img src="./image/logo-social.png"></a>
+        </div>
+        <nav id="label">
+            <tr id="menu">
+                <td><a href="#">國內旅遊</a></td>
+                <td><a href="#">國外旅遊</a></td>
+                <td><a href="#">票券訂購</a></td>
+                <td><a href="#">全球訂房</a></td>
+                <td><a href="#">特別企劃</a></td>
+                <td><a href="#">最新優惠</a></td>
+                <td><a href="#">關於我們</a></td>
+            </tr>
+        </nav>
+        <div class="totop">
+            <a href="#top"><img src="./image/fadetop.png"></a>
+        </div>
+    </header>
+
+    <figure class="image"></figure>
+
+    <main id="species">
+        <div class="domestic">
+            <section>
+                <div class="title">
+                    <div class="main">
+                        <h1>國內旅遊</h1>
+                    </div>
+                    <div class="secondary">
+                        <p><a href="#">北部地區</a></p>
+                        <p><a href="#">中部地區</a></p>
+                        <p><a href="#">南部地區</a></p>
+                        <p><a href="#">東部地區</a></p>
+                        <p><a href="#">外島地區</a></p>
+                    </div>
+                </div>
+                <div class="picture">
+                    <p>
+                        <a href="#"><img src="./image/tw/101-1.jpg"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/tw/Love_river.jpg"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/tw/Yilan.jpg"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/tw/Penghu.jpg"></a>
+                    </p>
+                </div>
+            </section>
+        </div>
+        <div class="foreign">
+            <section>
+                <div class="title">
+                    <div class="main">
+                        <h1>國外旅遊</h1>
+                    </div>
+                    <div class="secondary">
+                        <p><a href="#">亞洲</a></p>
+                        <p><a href="#">歐洲</a></p>
+                        <p><a href="#">美洲</a></p>
+                        <p><a href="#">非洲</a></p>
+                        <p><a href="#">大洋洲</a></p>
+                        <p><a href="#">南極洲</a></p>
+                    </div>
+                </div>
+                <div class="picture">
+                    <p>
+                        <a href="#"><img src="./image/USA.jpg"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/Venice.jfif"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/Nouvelle-Calédonie.jfif"></a>
+                    </p>
+                    <p>
+                        <a href="#"><img src="./image/photo-1501446529957-6226bd447c46.jfif"></a>
+                    </p>
+                </div>
+            </section>
+        </div>
+        <div class="especially">
+            <section>
+                <div class="title_2">
+                    <div class="main">
+                        <h1>特別企劃</h1>
+                    </div>
+                    <div class="picture_2">
+                        <div class="especially_branch">
+                            <p>
+                                <a href="#"><img src="./image/tw/八卦山.jpg"></a>
+                            </p>
+                            <p class="value">即日起從自家開始出發，步行到八卦山全程免費。</p>
+                        </div>
+                        <div class="especially_branch">
+                            <p>
+                                <a href="#"><img src="./image/tw/綠島.jpg"></a>
+                            </p>
+                            <p class="value">即日起從自家為出發點，步行至台東縣富岡漁港，再游泳到綠島，即可獲得喝不完的海水。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="new">
+            <section>
+                <div class="title_2">
+                    <div class="main">
+                        <h1>最新優惠</h1>
+                    </div>
+                    <div class="picture_2">
+                        <div class="new_branch">
+                            <p>
+                                <a href="#"><img src="./image/tw/八卦山.jpg"></a>
+                            </p>
+                            <p class="value">即日起從自家開始出發，步行到八卦山全程免費。</p>
+                        </div>
+                        <div class="new_branch">
+                            <p>
+                                <a href="#"><img src="./image/tw/綠島.jpg"></a>
+                            </p>
+                            <p class="value">即日起從自家為出發點，步行至台東縣富岡漁港，再游泳到綠島，即可獲得喝不完的海水。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <footer>
+        <div id="message">
+            <p>聯絡人：不知道</p>
+            <p>連絡電話：未知</p>
+            <p>聯絡地址：無</p>
+        </div>
     </footer>
 
 </body>
