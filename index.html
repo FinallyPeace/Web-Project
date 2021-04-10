@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
 
     <style>
         .bg-color {
@@ -86,6 +89,81 @@
             text-decoration: none;
         }
 
+        .nav a {
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        .jp_item,
+        .jp_item_sm,
+        .au_item,
+        .au_item_sm,
+        .us_item,
+        .us_item_sm,
+        .ch_item {
+            position: relative;
+        }
+
+        .jp_text,
+        .au_text,
+        .us_text,
+        .ch_text {
+            bottom: 0;
+            content: '';
+            left: 1em;
+            opacity: 0;
+            position: absolute;
+            right: 1em;
+            top: 0;
+            background: rgba(68, 68, 68, 0.6);
+            color: #ffffff;
+            opacity: 0;
+            text-align: center;
+
+        }
+
+        .us_text_sm,
+        .jp_text_sm,
+        .au_text_sm {
+            bottom: 0;
+            content: '';
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rgba(68, 68, 68, 0.6);
+            color: #ffffff;
+            opacity: 0;
+            text-align: center;
+        }
+
+        .au_item:hover .au_text,
+        .au_item_sm:hover .au_text_sm,
+        .jp_item_sm:hover .jp_text_sm,
+        .jp_item:hover .jp_text,
+        .us_item_sm:hover .us_text_sm,
+        .us_item:hover .us_text ,
+        .ch_item:hover .ch_text{
+            opacity: 1;
+        }
+
+        .au_text h2,
+        .jp_text h2,
+        .us_text h2, 
+        .ch_text h2{
+            margin-top: 3.3em;
+        }
+
+        .au_text a,
+        .au_text_sm a,
+        .jp_text_sm a,
+        .jp_text a,
+        .us_text_sm a,
+        .us_text a,
+        .ch_text a{
+            color: #ffffff;
+        }
 
 
         .title-card {
@@ -120,6 +198,7 @@
             background-color: rgb(247, 239, 140);
             color: rgb(38, 62, 133);
         }
+
 
         footer {
             background-color: rgb(27, 27, 27);
@@ -253,7 +332,6 @@
         </a>
     </div>
 
-
     <div class="container">
         <div class="row my-5">
             <h1 class="col-12 text-center">為何選擇WoWTravel?</h1>
@@ -281,27 +359,258 @@
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item " data-ride="carousel">
+            <div class="controls-left">
+                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
+                        class="fas fa-angle-double-left"></i></a>
+                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                        class="fas fa-angle-double-right"></i></a>
+            </div>
+            <ol class="carousel-indicators">
+                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                <li data-target="#multi-item-example" data-slide-to="1"></li>
 
-    <div class="container my-2">
-        <div class="row mb-5 pb-5">
-            <div class="col col-md-6"><img src='image/torii.jpg' width="100%"></div>
-            <div class="col col-md-6 d-flex flex-column">
-                <div class="col m-0 p-0">
-                    <div class="inside d-flex flex-row justify-content-start">
-                        <div class="inside_left">
-                            預設
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">必逛景點</h4>
+                            </div>
                         </div>
-                        <div class="inside_middle">
-                            預設
-                        </div>
-                        <div class="inside_right">
-                            預設
-                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">美食小吃</h4>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">shopping享樂</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">交通票卷</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col m-0 p-0"></div>
-                <div class="col m-0 p-0"></div>
+                <div class="carousel-item">
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-left" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="float:left">
+                        <div class="card mb-2">
+                            <img class="card-img-left" src="image/tw_north.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-title">Card title</h4>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container my-4 pb-5">
+        <div class="row justify-content-center my-3 ">
+            <div class="text h1">吃喝玩樂自由配</div>
+        </div>
+
+        <div class="nav nav-tabs d-flex justify-content-center " id="navTab" role="tablist">
+            <a class="nav-link active" data-toggle='tab' id='jp' aria-current="page" href="#jpTab">日本</a>
+            <a class="nav-link " data-toggle='tab' id='us' href="#usTab">美國</a>
+            <a class="nav-link" data-toggle='tab' id='au' href="#auTab">澳大利亞</a>
+            <a class="nav-link" data-toggle='tab' id='ch' href="#chTab">中國</a>
+        </div>
+        <div class="tab-content mb-5" id="myTabContent">
+            <div class="tab-pane fade show active" id="jpTab" role="tabpanel" aria-labelledby="jp-tab">
+                <div class="row ">
+                    <div class="jp_item col-12 col-md-8 mt-3">
+                        <img src="./image/torii.jpg" class='jp_img'
+                            style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="jp_text">
+                            <h2>日本特輯</h2>
+                            <a href='#'>
+                                <p>#必逛景點</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" d-none d-md-block col-md-4 mt-3 ">
+                        <div class="row jp_item_sm "><img src="./image//japanfood.jpg"
+                                style="width: 100%;height: 200px;border-radius: 5PX;">
+                            <div class="jp_text_sm">
+                                <h2 class='mt-5'>日本特輯</h2>
+                                <a href='#'>
+                                    <p>#日本必吃</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3 jp_item_sm"><img src="./image/micky.jpg"
+                                style="width: 100%;height: 195px;border-radius: 5PX;">
+                            <div class="jp_text_sm">
+                                <h2 class='mt-5'>日本特輯</h2>
+                                <a href='#'>
+                                    <p>#經典樂園</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="usTab" role="tabpanel" aria-labelledby="us-tab">
+                <div class="row ">
+                    <div class="col-12 col-md-4 mt-3 us_item">
+                        <img src="./image/queen-of-liberty.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="us_text">
+                            <h2>美國特輯</h2>
+                            <a href='#'>
+                                <p>#紐約必窺</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4  d-none d-md-block mt-3">
+                        <div class="row us_item_sm"><img src="./image/hollywood.jpg"
+                                style="width: 100%;height: 200px;border-radius: 5PX;">
+                            <div class="us_text_sm">
+                                <h2 class='mt-5'>美國特輯</h2>
+                                <a href='#'>
+                                    <p>#賭神同行</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3 us_item_sm"><img src="./image/las-vegas.jpg"
+                                style="width: 100%;height: 195px;border-radius: 5PX;">
+                            <div class="us_text_sm">
+                                <h2 class='mt-5'>美國特輯</h2>
+                                <a href='#'>
+                                    <p>#星光大道</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-none d-md-block col-md-4 mt-3 us_item">
+                        <img src="./image/san-francisco.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="us_text">
+                            <h2 >美國特輯</h2>
+                            <a href='#'>
+                                <p>#灣邊之城</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="auTab" role="tabpanel" aria-labelledby="au-tab">
+                <div class="row ">
+                    <div class="col-4 d-none d-md-block mt-3">
+                        <div class="row au_item_sm"><img src="./image/koala-australia.jpg"
+                                style="width: 100%;height: 200px;border-radius: 5PX;">
+                            <div class="au_text_sm">
+                                <h2 class='mt-5'>澳洲特輯</h2>
+                                <a href='#'>
+                                    <p>#特產動物</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-3 au_item_sm"><img src="./image/Uluru.jpg"
+                                style="width: 100%;height: 195px;border-radius: 5PX;">
+                            <div class="au_text_sm">
+                                <h2 class='mt-5'>澳洲特輯</h2>
+                                <a href='#'>
+                                    <p>#電影採點</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 mt-3 au_item">
+                        <img src="./image/australia.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="au_text">
+                            <h2>澳洲特輯</h2>
+                            <a href='#'>
+                                <p>#必逛景點</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="chTab" role="tabpanel" aria-labelledby="ch-tab">
+                <div class="row ">
+                    <div class="col-md-4 d-none d-md-block mt-3 ch_item">
+                        <img src="./image/Beijing.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="ch_text">
+                            <h2>中國特輯</h2>
+                            <a href='#'>
+                                <p>#世界遺產</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mt-3 d-none d-md-block  ch_item">
+                        <img src="./image/Xinjiang.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="ch_text">
+                            <h2>中國特輯</h2>
+                            <a href='#'>
+                                <p>#蒙古風情</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mt-3 ch_item ">
+                        <img src="./image/shanghai.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
+                        <div class="ch_text">
+                            <h2>中國特輯</h2>
+                            <a href='#'>
+                                <p>#上海風情</p>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -346,7 +655,7 @@
                         <h4 class='title-card'> 台東║花現台東藍～太麻里青山農場.池上伯朗大道.日式鹿野神社.娜路彎銀河行館2日</h4>
                         <p id='hot'>🔥456K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
-                                style='font-size: 0.1em;padding: 0px 5px;'>TWD1999</del> <span
+                                style='font-size: 0.1em;padding: 0px ;'>TWD1999</del> <span
                                 style='font-size: 0.1em;'>TWD</span>1599</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
@@ -362,7 +671,7 @@
                         <h4 class='title-card'> 嘉義║花現美好～阿勃勒黃金雨.隙頂雲海茶霧道.糖廠森林之歌.智選假日酒店2日</h4>
                         <p id='hot'>🔥28K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
-                                style='font-size: 0.1em;padding: 0px 5px;'>TWD2599</del> <span
+                                style='font-size: 0.1em;padding: 0px ;'>TWD2599</del> <span
                                 style='font-size: 0.1em;'>TWD</span>1699</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
@@ -487,7 +796,7 @@
 
         </div>
         <div class="row">
-            <div class="col-12 col-md-3 mt-3 mb-5 pb-5">
+            <div class="col-12 col-md-3 my-3">
                 <div class="card">
                     <img src="./image/A-li-shan.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
@@ -496,7 +805,7 @@
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1299</del> <span
                                 style='font-size: 0.1em;'>TWD</span>999</p>
-                        <p class="card-text d-flex justify-content-around align-items-end mb-3">
+                        <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
                             <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
                         </p>
@@ -504,15 +813,15 @@
                 </div>
             </div>
             <div class="col-12 col-md-3 my-3">
-                <div class="card ">
+                <div class="card">
                     <img src="./image/Kaohsiung.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 高雄║花飛蝶舞～懷舊竹田車站.花旗木粉紅花林.六堆客家園區.美麗島光之穹頂2日</h4>
-                        <p id='hot'>🔥99K+已訂購</p>
+                        <h4 class='title-card'> 高雄║花飛蝶舞～懷舊竹田車站.花旗木粉紅花林.六堆客家園區.美麗島光之穹頂2日 </h4>
+                        <p id='hot'>🔥75K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
-                                style='font-size: 0.1em;padding: 0px 5px;'>TWD1590</del> <span
-                                style='font-size: 0.1em;'>TWD</span>1139</p>
-                        <p class="card-text d-flex justify-content-around align-items-end mb-3">
+                                style='font-size: 0.1em;padding: 0px ;'>TWD1590</del> <span
+                                style='font-size: 0.1em;'>TWD</span>1130</p>
+                        <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
                             <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
                         </p>
@@ -528,7 +837,7 @@
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD999</del> <span
                                 style='font-size: 0.1em;'>TWD</span>750</p>
-                        <p class="card-text d-flex justify-content-around align-items-end mb-3">
+                        <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
                             <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
                         </p>
@@ -545,7 +854,7 @@
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1288</del> <span
                                 style='font-size: 0.1em;'>TWD</span>899</p>
-                        <p class="card-text d-flex justify-content-around align-items-end mb-3">
+                        <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
                             <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
                         </p>
@@ -556,7 +865,7 @@
     </div>
 
     <footer>
-        <div class="information d-flex flex-column align-items-center">
+        <div class="d-none d-md-flex flex-column align-items-center">
             <div class="info_left my-3 py-2">
                 <p>即刻訂閱WoW Travel！</p>
                 <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
@@ -568,10 +877,10 @@
                 <button type="button">訂閱</button>
             </div>
         </div>
-        <div class="line m-0 p-4 w-100 d-flex justify-content-center">
+        <div class="line m-0 p-4 w-100 d-none d-md-flex justify-content-center">
             <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
-        <div class="footer_h3 col-md-12 col-sm-12 my-4">
+        <div class="footer_h3 col-md-12 col-12 my-4 pt-5">
             <h3>追蹤我們</h3>
             <div class='d-flex justify-content-center my-2'>
                 <a href="#"> <i class="fab fa-line p-2" style="font-size: 2em; color: rgb(255, 255, 255)"></i></a>
@@ -584,8 +893,8 @@
         </div>
         <div class="container">
             <div class="row footer_row ">
-                <div class="col-md-4 col-sm-4 my-4">
-                    <ul class="footer_link ">
+                <div class="col-md-4 col-12 my-4">
+                    <ul class="footer_link text-center">
                         <h3>認識WOWTravel</h3>
                         <li><a href="">關於WOWTrave</a></li>
                         <li><a href="">使用者條款</a></li>
@@ -594,7 +903,7 @@
                         <li><a href="">媒體報導</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-sm-4 my-4">
+                <div class="col-md-4 col-6 my-4">
                     <ul class="footer_link ">
                         <h3>給旅人</h3>
                         <li><a href="">三大保證</a></li>
@@ -604,7 +913,7 @@
                         <li><a href="">兌換贈品</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-sm-4 my-4">
+                <div class="col-md-4 col-6 my-4">
                     <ul class="footer_link">
                         <h3>合作夥伴</h3>
                         <li><a href="">聯盟行銷</a></li>
@@ -614,7 +923,7 @@
                         <li><a href="">人才招募</a></li>
                     </ul>
                 </div>
-                <div class="footer_bottom col-md-12 col-sm-12 my-4">
+                <div class="footer_bottom col-md-12 col-12 my-4">
                     &copy;copyright 2021 by wow3cteam
                 </div>
             </div>
