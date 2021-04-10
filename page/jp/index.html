@@ -5,76 +5,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>日本旅遊</title>
     <style>
+        html {
+            scroll-behavior:smooth;
+        }
+        
         nav {
-            top: 0px;
             background-color: rgb(38, 62, 133);
             z-index: 2;
         }
         
-        .logo img {
-            padding: 10px;
-            max-width: 100%;
+        .nav-item {
+            font-size: 1.2em;
         }
         
-        .nav_right li {
-            margin: 10px;
+        .btn-outline-success {
+            color: #ecf1ed;
+            border-color: #f8faf9;
         }
         
-        .nav_right a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255);
         }
         
-        .nav_right a:hover {
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgb(38, 62, 133);
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dropdown-content a {
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
-        
-        .dropdown-content a:hover {
+        .dropdown-item:hover {
             color: rgb(38, 62, 133);
-            background-color: white;
-        }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
         }
         
         header {
             position: relative;
-            background:rgba(0, 0, 0, .1) url("image/bg_jp.jpg") center;
+            background: rgba(0, 0, 0, .1) url("image/bg_jp.jpg") center;
             background-blend-mode: multiply;
             background-size: cover;
             height: 300px;
             font-size: 5rem;
             font-weight: bolder;
-            margin-top: 80px;
+            margin-top: 56px;
         }
+
+        /* .hashtag {
+            position: sticky; 
+            top: 56px;
+            z-index: 2;
+        } */
         
         main {
             min-height: 60vh;
-            max-height: fit-content;
             margin-bottom: 20px;
         }
         
@@ -95,16 +75,16 @@
         }
         
         .btn-link {
-            background-color:#db4961 ;
-            color:#ffffff;
+            background-color: #db4961;
+            color: #ffffff;
         }
         
         .btn-link:hover {
             background-color: #ffb8c6;
-            color:#db4961 ;
+            color: #db4961;
             font-weight: bolder;
         }
-
+        
         .btn-primary {
             background-color: rgb(38, 62, 133);
         }
@@ -162,44 +142,143 @@
             color: rgb(219, 216, 216);
             text-align: center;
         }
+        
+        #goTop {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background: rgb(84, 110, 187, .6);
+            line-height: 50px;
+            border-radius: 50%;
+            transition: all 0.7s;
+            text-align: center;
+        }
+        
+        #goTop:hover {
+            background: rgb(84, 110, 187);
+        }
+        
+        .fade {
+            opacity: 1;
+        }
     </style>
+
+    <script>
+        // 收藏鈕
+        var flag = 0; 
+        function Favorites() {    
+            if (flag % 2 == 0) {    
+                document.getElementById("favorites").innerHTML = "已收藏";
+                document.getElementById("favorites").style.backgroundColor = "#ADADAD";
+            } else { 
+                document.getElementById("favorites").innerHTML = "♡ 收藏";
+                document.getElementById("favorites").style.backgroundColor = "#dc3545";
+            } 
+            flag++;
+        }
+
+        // 計算行程總金額
+        var sum = 0;
+
+        // GoTop
+        $(document).ready(function() {
+            // $("#goTop").click(function() {
+            //     $("html,body").animate({
+            //         scrollTop: 0
+            //     }, 'slow');
+            //     return false;
+            // });
+
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 830) {
+                    $('#goTop').fadeIn(500);
+                } else {
+                    $('#goTop').fadeOut(500);
+                }
+            });
+        });
+
+        //FadeIn & FadeOut
+        $(window).on("load", function() {
+            $(window).scroll(function() {
+                var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+                $(".fade").each(function() {
+                    var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+                    if (objectBottom < windowBottom) {
+                        if ($(this).css("opacity") == 0) {
+                            $(this).fadeTo(500, 1);
+                        }
+                    } else {
+                        if ($(this).css("opacity") == 1) {
+                            $(this).fadeTo(500, 0);
+                        }
+                    }
+                });
+            }).scroll(); //invoke scroll-handler on page-load
+        });
+    </script>
 </head>
 
 <body class="container-fluid m-0 p-0">
-    <nav class="w-100 d-flex flex-row flex-nowrap position-fixed">
-        <div class="logo w-25">
-            <img src='http://fakeimg.pl/120x60'>
-        </div>
-        <div class="nav_right w-75 d-flex justify-content-end align-content-center">
-            <ul class="m-0 p-0 list-unstyled d-flex flex-row flex-nowrap">
-                <li class="dropdown d-inline-block">
-                    <a href="">台幣</a>
-                    <div class="dropdown-content">
-                        <a href="#">英鎊</a>
-                        <a href="#">美元</a>
-                        <a href="#">日幣</a>
-                        <a href='#'>韓元</a>
+    <nav class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
+        <a class="navbar-brand" href="">WoW Travel</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class=" collapse navbar-collapse " id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mr-auto navbar-nav-scroll">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        繁體中文(CN)
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">ไทย</a>
+                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">日本語</a>
+                        <a class="dropdown-item" href="#">한국어</a>
                     </div>
                 </li>
-                <li class="dropdown d-inline-block">
-                    <a href="">繁體中文</a>
-                    <div class="dropdown-content">
-                        <a href="#">ไทย</a>
-                        <a href="#">English</a>
-                        <a href="#">日本語</a>
-                        <a href='#'>한국어</a>
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-nav-scroll">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        主選單
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">最新消息</a>
+                        <a class="dropdown-item" href="#">國內自由行</a>
+                        <a class="dropdown-item" href="#">國外自由行</a>
                     </div>
                 </li>
-                <li class="dropdown d-inline-block">
-                    <a href="">主選單</a>
-                    <div class="dropdown-content">
-                        <a href="#">最新消息</a>
-                        <a href="#">國內自由行</a>
-                        <a href="#">國外自由行</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        台幣
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">英鎊</a>
+                        <a class="dropdown-item" href="#">美元</a>
+                        <a class="dropdown-item" href="#">韓元</a>
+                        <a class="dropdown-item" href="#">日幣</a>
                     </div>
                 </li>
-                <li class="d-inline-block"><a href="./list/index.html">我的行程</a></li>
-                <li class="d-inline-block"><a href="#home">登入/註冊</a></li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="./list/index.html">我的行程 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">登入/註冊 <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -212,7 +291,7 @@
         <div class="container d-flex flex-column">
             <div class="mt-3 d-flex align-items-center">
                 <h3 class="m-2 font-weight-bolder">日本自由行景點行程</h3>
-                <div type="button" class="btn my-2 btn-danger"> ♡ 收藏</div>
+                <div id="favorites" class="btn my-2 btn-danger" onclick="Favorites()">♡ 收藏</div>
             </div>
             <div class="hashtag p-2 d-flex flex-row flex-wrap">
                 <a class="m-2 p-2 table-bordered " href="#attraction">#必訪景點</a>
@@ -234,6 +313,10 @@
         </div>
     </main>
 
+    <a href="#" id="goTop">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
+
     <section id="attraction" class="container mb-2 d-flex flex-column">
         <div class="card mb-4 text-white" style="border: 0px;">
             <div class="card-img" style="width: 100%; height: 300px; background: rgba(0, 0, 0, .5) url('image/必訪景點.jpg') no-repeat center; background-size: cover; background-blend-mode: multiply;">
@@ -253,8 +336,8 @@
                             淺草在江戶時代曾是東京最繁榮的一條街，保留了東京為數不多的江戶下町氛圍，這裡可說是最熱門的東京旅遊景點！
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1,0000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -268,8 +351,8 @@
                             晴空塔可說是東京頭號地標，是現今世界第二高塔！俯瞰整個東京市區的景觀，絕對是遊客來東京必去景點之一。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1,0000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -281,8 +364,8 @@
                         <h5 class="card-title">【東京】 河口湖</h5>
                         <p class="card-text">河口湖是位於山梨縣富士河口湖町的湖泊，為富士五湖之一，天氣晴朗時湖中富士山倒影相映為一絕景。</p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1,0000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -296,8 +379,8 @@
                             光是逛街就能感受到大阪人熱情和活力的道頓堀，可謂大阪必遊景點！在有名的巨大招牌前拍記念照、品嚐當地美食，坐船觀光以及商店街血拼。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1,0000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -309,8 +392,8 @@
                         <h5 class="card-title">【京都】 伏見稻荷神社</h5>
                         <p class="card-text">走進看不到盡頭的神祕千本鳥居！外國人訪日人氣NO.1的伏見稻荷大社。</p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>5000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -324,14 +407,14 @@
                             奈良曾是日本首都的所在地，也是個距離京都和大阪都很近的旅遊名勝，這裡最吸引人的地方就是有一群超可愛的鹿等著你餵餅。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1000</p>
+                            <button href="" class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center align-items-center" style="height:100px">
-                <div class="btn btn-primary" style="height: fit-content;">更多必訪景點</div>
+                <a href="" class="btn btn-primary" style="height: fit-content;">更多必訪景點</a>
             </div>
         </div>
     </section>
@@ -355,8 +438,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -370,8 +453,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>180</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -385,8 +468,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>250</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -400,8 +483,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>120</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -415,8 +498,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>300</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -428,14 +511,14 @@
                         <h5 class="card-title">【京都】 祇園 抹茶甜點</h5>
                         <p class="card-text">...</p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>350</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center align-items-center" style="height:100px">
-                <div class="btn btn-primary" style="height: fit-content;">更多在地美食小吃</div>
+                <a href="" class="btn btn-primary" style="height: fit-content;">更多在地美食小吃</a>
             </div>
         </div>
     </section>
@@ -446,57 +529,58 @@
             </div>
             <div class="card-img-overlay d-flex flex-column justify-content-center font-weight-bolder">
                 <h3 class="card-title">購物</h3>
-                <p class="card-text"></p>
+                <p class="card-text">國民服飾、時尚精品、藥妝家電、模型玩具，懶人包通通在這！</p>
             </div>
         </div>
         <div class="row d-flex flex-row flex-wrap">
+            <div class="mb-4 col-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <img class="card-img-top" src="image/購物_百貨.jpg" style="width: 100%;">
+                    <div class="card-body">
+                        <h5 class="card-title">百貨</h5>
+                        <p class="card-text">
+                            百貨公司通常都會在日本的各大主要都市設店，甚至可以說是絕對少不了的。從化妝品、食品及服飾雜貨讓您一次掌握。
+                        </p>
+                        <div class="card-text d-flex flex-row justify-content-end align-items-end">
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>1,0000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="mb-4 col-12 col-md-6 col-lg-4">
                 <div class="card">
                     <img class="card-img-top" src="image/購物_唐吉軻德.jpg" style="width: 100%;">
                     <div class="card-body">
                         <h5 class="card-title">唐吉軻德</h5>
                         <p class="card-text">
-                            零食、泡麵
+                            日本知名雜貨店唐吉軻德，有多種商品等著大家來挖寶！WoW Travel 幫各位整理了必買的零食、泡麵和生鮮雜貨，讓您不再頭昏眼花。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>2000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="mb-4 col-12 col-md-6 col-lg-4">
                 <div class="card">
                     <img class="card-img-top" src="image/購物_藥妝.jpg" style="width: 100%;">
                     <div class="card-body">
                         <h5 class="card-title">藥妝</h5>
                         <p class="card-text">
-                            ...
+                            日本藥品法規很嚴格，副作用通常都不會太大，感冒藥、腸胃藥、痠痛貼布、彩妝、面膜洗面乳⋯等，可說是旅日必買哦！
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-4 col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="image/購物_電器用品.jpg" style="width: 100%;">
-                    <div class="card-body">
-                        <h5 class="card-title">電器用品</h5>
-                        <p class="card-text">
-                            廚房小家電、美容電器、Dyson吸塵器
-                        </p>
-                        <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>3000</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center align-items-center" style="height:100px">
-                <div class="btn btn-primary" style="height: fit-content;">更多購物</div>
+                <a href="" class="btn btn-primary" style="height: fit-content;">更多購物</a>
             </div>
         </div>
     </section>
@@ -520,8 +604,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>2150</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -535,14 +619,14 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>2090</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center align-items-center" style="height:100px">
-                <div class="btn btn-primary" style="height: fit-content;">更多主題樂園門票</div>
+                <a href="" class="btn btn-primary" style="height: fit-content;">更多主題樂園門票</a>
             </div>
         </div>
     </section>
@@ -566,8 +650,8 @@
                             ...
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>960</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -581,8 +665,8 @@
                             ICOCA就像是台灣的「悠遊卡」和「一卡通」，每次搭乘大眾交通工具只需朝感應機碰一下，就能輕鬆地搭車及購物。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>600</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
@@ -596,14 +680,14 @@
                             1天內可無限次搭乘大阪地鐵、大阪公車全線或指定範圍內私鐵路線，並可免費參觀50處以上著名景點及設施。
                         </p>
                         <div class="card-text d-flex flex-row justify-content-end align-items-end">
-                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD</span>&nbsp;1,0000</p>
-                            <a href="" class="ml-2 btn btn-link text-decoration-none">加入行程</a>
+                            <p class="mb-1" style="font-size: larger;"><span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>580</p>
+                            <button class="ml-2 btn btn-link text-decoration-none">加入行程</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-100 d-flex justify-content-center align-items-center" style="height:100px">
-                <div class="btn btn-primary" style="height: fit-content;">更多交通票券</div>
+                <a href="" class="btn btn-primary" style="height: fit-content;">更多交通票券</a>
             </div>
         </div>
     </section>
@@ -662,7 +746,7 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
 
