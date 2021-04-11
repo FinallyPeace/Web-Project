@@ -151,10 +151,19 @@
         #title {
             color: rgb(255, 0, 0);
         }
-
-        #schedule img{
+        
+        #schedule img {
             height: auto;
             max-width: 100%;
+        }
+        
+        #shopping_basket {
+            border: 2px dashed #0076b3;
+            color: #0076b3;
+            font-size: 18px;
+            text-align: center;
+            line-height: 25px;
+            width: 100px;
         }
     </style>
 </head>
@@ -399,7 +408,10 @@
                             </div>
                         </div>
                         <div id="recommend">
-                            <div class="m-2 h5"><img src="../../jp/icon/shopping-cart.png"><strong class="pl-2">推薦加購</strong></div>
+                            <div class="m-2 h5 d-flex flex-row justify-content-between">
+                                <div><img src="../../jp/icon/shopping-cart.png"><strong class="pl-2">推薦加購</strong></div>
+                                <div id="shopping_basket">🛒已購(<span id="number" value="0">0</span>)</div>
+                            </div>
                             <div class="d-flex flex-row justify-content-between align-items-center border border-dark">
                                 <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>推薦</small></div>
                                 <div class="ml-3 mt-1 mr-auto h5"><strong>釜山－海東龍宮寺</strong></div>
@@ -407,16 +419,16 @@
                                     <div><span id="color_red" class="h4"><strong>TWD$2,000</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$5,000</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-danger mr-2">選購</button></div>
+                                <div><button id="buy_1" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between align-items-center border border-dark">
-                                <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>   推薦</small></div>
+                                <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>推薦</small></div>
                                 <div class="ml-3 mt-1 mr-auto h5"><strong>釜山－影島大橋</strong></div>
                                 <div class="d-flex flex-column align-items-end mr-3">
                                     <div><span id="color_red" class="h4"><strong>TWD$1,000</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$9,999</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-danger mr-2">選購</button></div>
+                                <div><button id="buy_2" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
                             <div class="d-flex flex-row align-items-center border border-dark">
                                 <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>推薦</small></div>
@@ -425,7 +437,7 @@
                                     <div><span id="color_red" class="h4"><strong>TWD$6,666</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$9,999</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-danger mr-2">選購</button></div>
+                                <div><button id="buy_3" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
                         </div>
                     </section>
@@ -850,7 +862,23 @@
             </div>
         </div>
     </footer>
-    
+    <script>
+        var x = 0
+
+        function add_purchase(obj) {
+            if (document.getElementById(obj.id).innerHTML == "選購") {
+                x++;
+                document.getElementById("number").innerHTML = x;
+                document.getElementById(obj.id).innerHTML = "已選購";
+                document.getElementById(obj.id).style = "background-color:gray;box-shadow:none";
+            } else {
+                x--;
+                document.getElementById("number").innerHTML = x;
+                document.getElementById(obj.id).innerHTML = "選購";
+                document.getElementById(obj.id).style = "background-color:#dc3545;box-shadow:2px, #dc3545";
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
