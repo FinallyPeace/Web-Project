@@ -167,11 +167,20 @@
 
         $(document).ready(function () {
             // 計算行程總金額
-            $(".add-to-cart").one("click", function () {
-                $(this).text("✔ 已加入")
-                sum += parseInt($(this).val());
-                thousands = sum.toLocaleString();
-                $("#result").text(thousands);
+            $(".add-to-cart").click(function() {
+                if($(this).text() == "加入行程") {
+                    $(this).text("✔ 已加入");
+                    sum += parseInt($(this).val());
+                    thousands = sum.toLocaleString();
+                    $("#result").text(thousands);
+                } else if($(this).text() == "✔ 已加入") {
+                    $(this).text("加入行程");
+                    sum -= parseInt($(this).val());
+                    thousands = sum.toLocaleString();
+                    $("#result").text(thousands);
+                } else {
+                    $("#result").text("有內鬼，終止交易！");
+                }
             });
 
             // GoTop
