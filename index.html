@@ -18,6 +18,47 @@
         crossorigin="anonymous" />
 
     <style>
+
+         .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            background-color: rgba(0, 0, 0, 0.507);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        } 
+
+        .full-screen .text {
+            width: 90%;
+            height: fit-content;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            position: relative;
+
+        }
+
+
+        /* nav */
+
+        .logo {
+            display: flex;
+            align-items: center
+        }
+
+        .nav_circle {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: crimson;
+            margin-top: 8px;
+            animation: logoactive 3s;
+        }
+
         .bg-color {
             background-color: rgb(38, 62, 133);
         }
@@ -42,8 +83,11 @@
             color: rgb(38, 62, 133);
         }
 
+        /* carousel */
+
         .carousel_text {
-            color: rgb(75, 75, 75);
+
+            color: rgb(22, 22, 22);
         }
 
         .carousel-caption {
@@ -55,44 +99,31 @@
             height: 100%;
         }
 
+        /* aside */
 
-        .text {
-            text-align: center;
-            font-weight: bold;
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: crimson;
+            margin-top: 10px;
+            margin-bottom: 0;
+            animation: logoactive 5s 2s infinite;
+
         }
 
+        @keyframes logoactive {
+            0% {
+                border-radius: 0%;
+            }
 
-        .list a {
-            font-size: 1.2em;
-            text-decoration: none;
-            color: rgb(75, 75, 75);
-            font-weight: bold;
+            100% {
+                border-radius: 50%;
+            }
+
         }
 
-        .list_ex {
-            font-size: 1.2em;
-            text-decoration: none;
-            color: rgb(255, 255, 255);
-            font-weight: bold;
-            background-color: rgb(38, 62, 133);
-            border-radius: 5px;
-        }
-
-
-        .list a:hover {
-            color: rgb(247, 239, 140);
-        }
-
-        .list_ex:hover {
-            color: rgb(38, 62, 133);
-            background-color: rgb(247, 239, 140);
-            text-decoration: none;
-        }
-
-        .nav a {
-            font-weight: bolder;
-            font-size: larger;
-        }
+        /* artical */
 
         .jp_item,
         .jp_item_sm,
@@ -143,15 +174,15 @@
         .jp_item_sm:hover .jp_text_sm,
         .jp_item:hover .jp_text,
         .us_item_sm:hover .us_text_sm,
-        .us_item:hover .us_text ,
-        .ch_item:hover .ch_text{
+        .us_item:hover .us_text,
+        .ch_item:hover .ch_text {
             opacity: 1;
         }
 
         .au_text h2,
         .jp_text h2,
-        .us_text h2, 
-        .ch_text h2{
+        .us_text h2,
+        .ch_text h2 {
             margin-top: 3.3em;
         }
 
@@ -161,10 +192,43 @@
         .jp_text a,
         .us_text_sm a,
         .us_text a,
-        .ch_text a{
+        .ch_text a {
             color: #ffffff;
         }
 
+        /* section */
+
+        .list a {
+            font-size: 1.2em;
+            text-decoration: none;
+            color: rgb(75, 75, 75);
+            font-weight: bold;
+        }
+
+        .list_ex {
+            font-size: 1.2em;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            background-color: rgb(38, 62, 133);
+            border-radius: 5px;
+        }
+
+
+        .list a:hover {
+            color: rgb(245, 236, 107);
+        }
+
+        .list_ex:hover {
+            color: rgb(38, 62, 133);
+            background-color: rgb(247, 239, 140);
+            text-decoration: none;
+        }
+
+        .nav a {
+            font-weight: bolder;
+            font-size: larger;
+        }
 
         .title-card {
             display: -webkit-box;
@@ -172,7 +236,6 @@
             overflow: hidden;
             -webkit-box-orient: vertical;
         }
-
 
         #hot {
             font-size: 1em;
@@ -198,6 +261,8 @@
             background-color: rgb(247, 239, 140);
             color: rgb(38, 62, 133);
         }
+
+        /* footer */
 
 
         footer {
@@ -226,8 +291,25 @@
 
 <body class="container-fluid m-0 p-0">
 
+    <!-- nav -->
+
+    <div class="full-screen alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="text">
+            <div class="close">  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button></div>
+            <h4 class='font-weight-bold'style="color: rgb(255, 0, 51);">防疫小提醒</h4>
+            <p class='p-2'>即日起八大場所全面強制要求戴口罩，包含<span>醫療照顧機構、大眾運輸、賣場市集、教育學習場所、展演場所、宗教場所、娛樂場所、大型活動</span>等，提醒民眾務必配合。
+            </p>
+            <p >《小提醒》</br><span class='p-2'>▲國人在離島台灣好行、交通船或巴士仍有未戴口罩之情形，如有不戴或屢勸不聽者最高可罰款一萬五仟元。 更多防疫即時資訊可參考<a
+                    href="https://www.cdc.gov.tw/">衛生福利部疾病管制署</a>網頁</span></p>
+        </div>
+    </div>
+
     <nav class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">WoWtravel</a>
+        <a class="navbar-brand d-flex justify-content-center" href="#">W<div class="logo">
+                <div class='nav_circle'></div>
+            </div>WTravel</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -289,7 +371,7 @@
     </nav>
 
 
-
+    <!-- carousel -->
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -307,8 +389,8 @@
             </div>
             <div class="carousel-item">
                 <img src="image/bg_beach.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 class='carousel_text'>全世界最棒的旅遊體驗</br>
+                <div class="carousel-caption d-none d-md-block ">
+                    <h1 class='carousel_text mt-5'>全世界最棒的旅遊體驗</br>
                         帶你深入探索有趣又獨特的旅遊體驗行程</h1>
                     <h4 class='carousel_text'>WoWTravel gives you the best travel experience.</h4>
                 </div>
@@ -332,33 +414,41 @@
         </a>
     </div>
 
-    <div class="container">
+    <!-- aside -->
+
+    <aside class="container">
         <div class="row my-5">
-            <h1 class="col-12 text-center">為何選擇WoWTravel?</h1>
+            <h1 class="col-12  d-flex justify-content-center">為何選擇W<div class="logo">
+                    <div class='circle'></div>
+                </div>WTravel?
+
+            </h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-6 col-md-3  my-5 pb-5">
                 <img src="icon/teamwork.png" class="rounded mx-auto d-block w-50" alt="...">
-                <div class="text h4 my-3">最專業服務團隊</div>
-                <div class="text p my-2">從1950年起在各地已經深耕超過20年之久，累積超過3萬人次以上各地旅遊實績。</div>
+                <div class="text h4 my-3 text-center font-weight-bold">最專業服務團隊</div>
+                <div class="aside_text p my-2 text-center font-weight-bold">從1950年起在各地已經深耕超過20年之久，累積超過3萬人次以上各地旅遊實績。
+                </div>
             </div>
             <div class="col-6 col-md-3 my-5">
                 <img src="icon/salary.png" class="rounded mx-auto d-block w-50" alt="...">
-                <div class="text h4 my-3">一手代理最省錢</div>
-                <div class="text p my-2">台灣旅遊團銷售冠軍，一手代理無中間商賺取差價，並幫您搭配最實惠機票與行程。</div>
+                <div class="text h4 my-3 text-center font-weight-bold">一手代理最省錢</div>
+                <div class="aside_text p my-2 text-center font-weight-bold">台灣旅遊團銷售冠軍，一手代理無中間商賺取差價，並幫您搭配最實惠機票與行程。</div>
             </div>
             <div class="col-6 col-md-3 my-5">
                 <img src="icon/gift-box (2).png" class="rounded mx-auto d-block w-50" alt="...">
-                <div class="text h4 my-3">最多優惠與贈禮</div>
-                <div class="text p my-2">最多獨家熱門推薦渡假村優惠與贈禮回饋給客戶，眾多明星、網紅的選擇~品質有保證!</div>
+                <div class="text h4 my-3 text-center font-weight-bold">最多優惠與贈禮</div>
+                <div class="aside_text p my-2 text-center font-weight-bold">最多獨家熱門推薦渡假村優惠與贈禮回饋給客戶，眾多明星、網紅的選擇~品質有保證!
+                </div>
             </div>
             <div class="col-6 col-md-3  my-5">
                 <img src="icon/customer-service.png" class="rounded mx-auto d-block w-50" alt="...">
-                <div class="text h4 my-3">客製化旅遊計畫</div>
-                <div class="text p my-2">公司企業、家族、親子旅遊皆可量身訂製，為您打造心中理想的旅程，皆由專人服務</div>
+                <div class="text h4 my-3 text-center font-weight-bold">客製化旅遊計畫</div>
+                <div class="aside_text p my-2 text-center font-weight-bold">公司企業、家族、親子旅遊皆可量身訂製，為您打造心中理想的旅程，皆由專人服務</div>
             </div>
         </div>
-    </div>
+    </aside>
     <!-- <div class="container">
         <div id="multi-item-example" class="carousel slide carousel-multi-item " data-ride="carousel">
             <div class="controls-left">
@@ -454,8 +544,9 @@
         </div>
     </div> -->
 
+    <!-- article -->
 
-    <div class="container my-4 pb-5">
+    <article class="container my-4 pb-5">
         <div class="row justify-content-center my-3 ">
             <div class="text h1">吃喝玩樂自由配</div>
         </div>
@@ -537,7 +628,7 @@
                     <div class="d-none d-md-block col-md-4 mt-3 us_item">
                         <img src="./image/san-francisco.jpg" style="width: 100%;height: 413px;border-radius: 5PX;">
                         <div class="us_text">
-                            <h2 >美國特輯</h2>
+                            <h2>美國特輯</h2>
                             <a href='#'>
                                 <p>#灣邊之城</p>
                             </a>
@@ -613,9 +704,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </article>
 
-    <div class="container">
+    <!-- section -->
+
+    <section class="container">
 
         <div class="row justify-content-center my-2 ">
             <div class="text h1">FUN玩台灣🎢</div>
@@ -641,8 +734,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1299</del> <span
                                 style='font-size: 0.1em;'>TWD</span>899</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="./page/tw/index.html" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
 
                     </div>
@@ -658,8 +752,9 @@
                                 style='font-size: 0.1em;padding: 0px ;'>TWD1999</del> <span
                                 style='font-size: 0.1em;'>TWD</span>1599</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -674,8 +769,9 @@
                                 style='font-size: 0.1em;padding: 0px ;'>TWD2599</del> <span
                                 style='font-size: 0.1em;'>TWD</span>1699</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -690,15 +786,16 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1200</del> <span
                                 style='font-size: 0.1em;'>TWD</span>999</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container ">
+    </section>
+    <section class="container ">
         <div class="row justify-content-center my-2 ">
             <div class="text h1">樂遊全世界✈️</div>
         </div>
@@ -723,8 +820,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD39800</del> <span
                                 style='font-size: 0.1em;'>TWD</span>32000</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
 
@@ -740,8 +838,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD22800</del> <span
                                 style='font-size: 0.1em;'>TWD</span>18900</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -756,8 +855,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD28999</del> <span
                                 style='font-size: 0.1em;'>TWD</span>22999</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -772,16 +872,17 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD29800</del> <span
                                 style='font-size: 0.1em;'>TWD</span>24600</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container ">
+    <section class="container ">
         <div class="row  justify-content-center my-2 ">
             <div class="text-center h1">春暖花開🌸把握出遊好時節</div>
         </div>
@@ -806,8 +907,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1299</del> <span
                                 style='font-size: 0.1em;'>TWD</span>999</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -822,8 +924,9 @@
                                 style='font-size: 0.1em;padding: 0px ;'>TWD1590</del> <span
                                 style='font-size: 0.1em;'>TWD</span>1130</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -838,8 +941,9 @@
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD999</del> <span
                                 style='font-size: 0.1em;'>TWD</span>750</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
@@ -850,19 +954,21 @@
                     <div class='text_item p-1'>
                         <h4 class='title-card '> 彰化║花間旅行～康乃馨花田.鹿港天后宮.田中蜜麻花.小鎮老街漫遊1日</h4>
                         <p id='hot'>🔥315K+已訂購</p>
-                        <!-- <p id='del'><span>TWD</span>1288</p> -->
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1288</del> <span
                                 style='font-size: 0.1em;'>TWD</span>899</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
-                            <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a href="./page/tw/index.html"
+                                class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
+                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- footer -->
 
     <footer>
         <div class="d-none d-md-flex flex-column align-items-center">
@@ -880,7 +986,7 @@
         <div class="line m-0 p-4 w-100 d-none d-md-flex justify-content-center">
             <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
-        <div class="footer_h3 col-md-12 col-12 my-4 pt-5">
+        <div class="d-md-none d-sm-block footer_h3 col-md-12 col-12 my-4 pt-5">
             <h3>追蹤我們</h3>
             <div class='d-flex justify-content-center my-2'>
                 <a href="#"> <i class="fab fa-line p-2" style="font-size: 2em; color: rgb(255, 255, 255)"></i></a>
@@ -893,17 +999,8 @@
         </div>
         <div class="container">
             <div class="row footer_row ">
-                <div class="col-md-4 col-12 my-4">
-                    <ul class="footer_link text-center">
-                        <h3>認識WOWTravel</h3>
-                        <li><a href="">關於WOWTrave</a></li>
-                        <li><a href="">使用者條款</a></li>
-                        <li><a href="">隱私權保護政策</a></li>
-                        <li><a href="">常見問題與幫助</a></li>
-                        <li><a href="">媒體報導</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-6 my-4">
+
+                <div class="col-md-3 col-3 my-4">
                     <ul class="footer_link ">
                         <h3>給旅人</h3>
                         <li><a href="">三大保證</a></li>
@@ -913,7 +1010,17 @@
                         <li><a href="">兌換贈品</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-6 my-4">
+                <div class="col-md-5 col-5 my-4">
+                    <ul class="footer_link text-center">
+                        <h3>認識WoWTravel</h3>
+                        <li><a href="">關於WOWTrave</a></li>
+                        <li><a href="">使用者條款</a></li>
+                        <li><a href="">隱私權保護政策</a></li>
+                        <li><a href="">常見問題與幫助</a></li>
+                        <li><a href="">媒體報導</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-3 my-4">
                     <ul class="footer_link">
                         <h3>合作夥伴</h3>
                         <li><a href="">聯盟行銷</a></li>
@@ -931,17 +1038,34 @@
     </footer>
 
 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+        $(document).ready(function () {
+            $('.close').click(function () {
+                $('.full-screen').hide();
+            })
+        })
+    </script> -->
+    <script src="js/jquery.min.js">
+        $(document).ready(function () {
+            $('.close').click(function () {
+                $('.full-screen').hide();
+            })
+        })
+
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
