@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
+        /*header*/
+        
+        .logo {
+            display: flex;
+            align-items: center
+        }
+        
+        .nav_circle {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: crimson;
+            margin-top: 8px;
+            animation: logoactive 3s;
+        }
+        
         .bg-color {
             background-color: rgb(38, 62, 133);
         }
@@ -32,6 +48,7 @@
         .dropdown-item:hover {
             color: rgb(38, 62, 133);
         }
+        /*footer*/
         
         footer {
             background-color: rgb(27, 27, 27);
@@ -157,6 +174,7 @@
         }
         /* 以下為新增 */
         /* GoTop */
+        
         #goTop {
             display: none;
             position: fixed;
@@ -172,22 +190,22 @@
             transition: all 0.7s;
             text-align: center;
         }
-
+        
         #goTop:hover {
             background: rgb(84, 110, 187);
         }
     </style>
     <script>
         // GoTop
-        $(document).ready(function () {
-            $("#goTop").click(function () {
+        $(document).ready(function() {
+            $("#goTop").click(function() {
                 $("html,body").animate({
                     scrollTop: 0
                 }, 'slow');
                 return false;
             });
 
-            $(window).scroll(function () {
+            $(window).scroll(function() {
                 if ($(this).scrollTop() > 830) {
                     $('#goTop').fadeIn(500);
                 } else {
@@ -205,11 +223,13 @@
     </a>
     <!---下方為header--->
     <header class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">WoWtravel</a>
+        <a class="navbar-brand d-flex justify-content-center" href="#">W<div class="logo">
+            <div class='nav_circle'></div>
+        </div>WTravel</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
 
         <div class=" collapse navbar-collapse " id="navbarSupportedContent">
@@ -220,8 +240,8 @@
             <ul class="navbar-nav mr-auto navbar-nav-scroll">
                 <li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        繁體中文(CN)
-                    </a>
+                    繁體中文(CN)
+                </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">ไทย</a>
                         <a class="dropdown-item" href="#">English</a>
@@ -233,8 +253,8 @@
             <ul class="navbar-nav ml-auto navbar-nav-scroll">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        主選單
-                    </a>
+                    主選單
+                </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">最新消息</a>
                         <a class="dropdown-item" href="#">國內自由行</a>
@@ -243,8 +263,8 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        台幣
-                    </a>
+                    台幣
+                </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">英鎊</a>
                         <a class="dropdown-item" href="#">美元</a>
@@ -471,6 +491,7 @@
                                 </div>
                                 <div><button id="buy_3" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
+                        </div>
                     </section>
 
                     <!---下方為aside--->
@@ -540,7 +561,7 @@
 
                         </div>
                     </aside>
-                    </div>
+                </div>
             </main>
             <main id="value">
                 <div class="col-12">
@@ -706,13 +727,13 @@
                     </section>
                 </div>
             </main>
-            </div>
+        </div>
     </article>
 
     <!---下方為footer--->
 
     <footer>
-        <div class="information d-flex flex-column align-items-center">
+        <div class="d-none d-md-flex flex-column align-items-center">
             <div class="info_left my-3 py-2">
                 <p>即刻訂閱WoW Travel！</p>
                 <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
@@ -724,10 +745,10 @@
                 <button type="button">訂閱</button>
             </div>
         </div>
-        <div class="line m-0 p-4 w-100 d-flex justify-content-center">
+        <div class="line m-0 p-4 w-100 d-none d-md-flex justify-content-center">
             <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
-        <div class="footer_h3 col-md-12 col-sm-12 my-4">
+        <div class="d-md-none d-sm-block footer_h3 col-md-12 col-12 py-4 pt-5">
             <h3>追蹤我們</h3>
             <div class='d-flex justify-content-center my-2'>
                 <a href="#"> <i class="fab fa-line p-2" style="font-size: 2em; color: rgb(255, 255, 255)"></i></a>
@@ -740,17 +761,8 @@
         </div>
         <div class="container">
             <div class="row footer_row ">
-                <div class="col-md-4 col-sm-4 my-4">
-                    <ul class="footer_link ">
-                        <h3>認識WOWTravel</h3>
-                        <li><a href="">關於WOWTrave</a></li>
-                        <li><a href="">使用者條款</a></li>
-                        <li><a href="">隱私權保護政策</a></li>
-                        <li><a href="">常見問題與幫助</a></li>
-                        <li><a href="">媒體報導</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 col-sm-4 my-4">
+
+                <div class="col-md-3 col-3 my-4">
                     <ul class="footer_link ">
                         <h3>給旅人</h3>
                         <li><a href="">三大保證</a></li>
@@ -760,7 +772,17 @@
                         <li><a href="">兌換贈品</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 col-sm-4 my-4">
+                <div class="col-md-5 col-5 my-4">
+                    <ul class="footer_link text-center">
+                        <h3>認識WoWTravel</h3>
+                        <li><a href="">關於WOWTrave</a></li>
+                        <li><a href="">使用者條款</a></li>
+                        <li><a href="">隱私權保護政策</a></li>
+                        <li><a href="">常見問題與幫助</a></li>
+                        <li><a href="">媒體報導</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-3 my-4">
                     <ul class="footer_link">
                         <h3>合作夥伴</h3>
                         <li><a href="">聯盟行銷</a></li>
@@ -770,28 +792,55 @@
                         <li><a href="">人才招募</a></li>
                     </ul>
                 </div>
-                <div class="footer_bottom col-md-12 col-sm-12 my-4">
+                <div class="footer_bottom col-md-12 col-12 my-4">
                     &copy;copyright 2021 by wow3cteam
                 </div>
             </div>
         </div>
     </footer>
+    <script src="js/jquery.min.js">
+        $(document).ready(function() {
+            $('.close').click(function() {
+                $('.full-screen').hide();
+            })
+        })
+    </script>
     <script>
-        var x = 0
+        // var x = 0
 
-        function add_purchase(obj) {
-            if (document.getElementById(obj.id).innerHTML == "選購") {
-                x++;
-                document.getElementById("number").innerHTML = x;
-                document.getElementById(obj.id).innerHTML = "已選購";
-                document.getElementById(obj.id).style = "background-color:gray;box-shadow:none";
-            } else {
-                x--;
-                document.getElementById("number").innerHTML = x;
-                document.getElementById(obj.id).innerHTML = "選購";
-                document.getElementById(obj.id).style = "background-color:#dc3545;box-shadow:2px, #dc3545";
-            }
-        }
+        // function add_purchase(obj) {
+        //     if (document.getElementById(obj.id).innerHTML == "選購") {
+        //         x++;
+        //         document.getElementById("number").innerHTML = x;
+        //         document.getElementById(obj.id).innerHTML = "已選購";
+        //         document.getElementById(obj.id).style = "background-color:gray;box-shadow:none;border:gray";
+        //     } else {
+        //         x--;
+        //         document.getElementById("number").innerHTML = x;
+        //         document.getElementById(obj.id).innerHTML = "選購";
+        //         document.getElementById(obj.id).style = "background-color:#dc3545;box-shadow:2px, #dc3545";
+        //     }
+        // }
+
+        $(document).ready(function() {
+            $("#recommend button").click(function() {
+                var id = $(this).attr('id') // 回傳id
+                var text = "#" + id; // 使用id前方需加"#"，class前方需加"."
+                if ($(text).text() == "選購") {
+                    $(text).text("已選購");
+                    $(text).css({"background-color":"gray", "box-shadow":"none"});
+                    $("#number").text(function(i, origText) {
+                        return parseInt(origText) + 1;
+                    });
+                } else if ($(text).text() == "已選購"){
+                    $(text).text("選購");
+                    $(text).css({"background-color":"#dc3545","box-shadow":"2px #dc3545"});
+                    $("#number").text(function(i, origText) {
+                        return parseInt(origText) - 1;
+                    });
+                }
+            })
+        })
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
