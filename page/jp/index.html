@@ -174,11 +174,11 @@
             // code
             $(".search").click(function() {
                 var text = $(".search-text").val();
-                $(window).on("load", function() {
-                    if(text == "WoW") {
-                        $(window).attr('location', "https://finallypeace.github.io/WebProject/page/different%20home%20page/lien/index.html");
-                    }
-                });
+
+                if (text == "WoW") {
+                    $(".logo-link").attr('href', "https://finallypeace.github.io/WebProject/page/different%20home%20page/lien/index.html");
+                    alert("已切換首頁！");
+                }
                 return false;
             });
 
@@ -270,9 +270,9 @@
 
 <body class="container-fluid m-0 p-0">
     <nav class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
-        <a class="navbar-brand d-flex align-items-center" href="../../index.html">W<div class="logo">
-            <div class='nav_circle'></div>
-        </div>WTravel</a>
+        <a class="logo-link navbar-brand d-flex align-items-center" href="../../index.html">
+            W<div class="logo"><div class='nav_circle'></div></div>WTravel
+        </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -281,7 +281,7 @@
         <div class=" collapse navbar-collapse " id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0">
                 <input class="search-text form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-                <button class="search btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button href="#" class="search btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <ul class="navbar-nav mr-auto navbar-nav-scroll">
                 <li class="nav-item dropdown ">
