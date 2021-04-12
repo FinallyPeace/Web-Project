@@ -257,6 +257,22 @@
                     $('#goTop').fadeOut(500);
                 }
             });
+
+            $(".add-to-cart").click(function() {
+                if($(this).text() == "加入行程") {
+                    $(this).text("✔ 已加入");
+                    // sum += parseInt($(this).val());
+                    // thousands = sum.toLocaleString();
+                    // $("#result").text(thousands);
+                } else if($(this).text() == "✔ 已加入") {
+                    $(this).text("加入行程");
+                    // sum -= parseInt($(this).val());
+                    // thousands = sum.toLocaleString();
+                    // $("#result").text(thousands);
+                } else {
+                    $("#result").text("有內鬼，終止交易！");
+                }
+            });
         });
     </script>
 </head>
@@ -682,7 +698,7 @@
                                 style='font-size: 0.1em;'>TWD</span>899</p>
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="" class="btn btn-left col-5 text-decoration-none ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none ">加入行程</a>
+                            <a class="btn btn-right col-5 text-decoration-none add-to-cart">加入行程</a>
                         </p>
 
                     </div>
