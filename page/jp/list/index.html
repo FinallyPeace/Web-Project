@@ -5,117 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WOW Travel</title>
+    <title>WoW travel</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-         header {
+        .bg-color {
             background-color: rgb(38, 62, 133);
-            z-index: 2;
         }
         
-        .logo img {
-            padding: 10px;
-            max-width: 100%;
+        .nav-item {
+            font-size: 1.2em;
         }
         
-        .nav_right li {
-            margin: 10px;
+        .btn-outline-success {
+            color: #ecf1ed;
+            border-color: #f8faf9;
         }
         
-        .nav_right a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255);
         }
         
-        .nav_right a:hover {
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: rgb(38, 62, 133);
-            min-width: 100px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dropdown-content a {
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
-        
-        .dropdown-content a:hover {
+        .dropdown-item:hover {
             color: rgb(38, 62, 133);
-            background-color: white;
         }
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
         
         footer {
-            background-color: rgb(10, 10, 10)
+            background-color: rgb(27, 27, 27);
         }
         
-        .information {
-            padding: 10px 0px;
-            display: flex;
-            width: 100%;
-            margin: auto;
-            justify-content: center;
-        }
-        
-        .info_left {
-            padding: 15px 0px;
-            color: rgb(219, 216, 216);
+        .footer_h3,
+        .footer_row h3,
+        .footer_bottom,
+        .info_left p {
+            color: white;
             text-align: center;
         }
         
-        #search {
-            height: fit-content;
-        }
-        
-        .mail button:hover {
-            background-color: rgb(38, 62, 133);
-            color: rgb(219, 216, 216);
-        }
-        
-        .other {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .footer_item {
-            width: 25%;
-        }
-        
-        .footer_item li {
+        .footer_link li {
+            list-style: none;
             text-align: center;
-            padding: 0px;
         }
         
-        .footer_item a {
-            color: rgb(219, 216, 216);
+        .footer_link a {
             text-decoration: none;
-        }
-        
-        .footer_item h3 {
-            font-size: 20px;
-            padding: 20px 0px;
-            color: rgb(219, 216, 216);
-            text-align: center;
+            color: white
         }
         /* 以下為新增 */
         /*nav*/
@@ -123,6 +60,10 @@
         nav {
             background-color: rgb(233, 231, 231);
             padding-bottom: 10px;
+        }
+        
+        #nav {
+            padding-top: 60px;
         }
         
         header a,
@@ -200,14 +141,19 @@
             list-style-position: inside;
         }
         
-        #background-red {
-            background-color: rgb(255, 102, 102);
-        }
-        
         #recommend-2 {
             color: white;
             background-color: orange;
             padding: 2px 5px;
+        }
+        
+        #shopping_basket {
+            border: 2px dashed #0076b3;
+            color: #0076b3;
+            font-size: 18px;
+            text-align: center;
+            line-height: 25px;
+            width: 100px;
         }
         /* 以下為新增 */
         /* GoTop */
@@ -258,40 +204,60 @@
         <i class="fas fa-angle-double-up"></i>
     </a>
     <!---下方為header--->
-    <header class="nav w-100 d-flex flex-row flex-nowrap position-relative">
-        <div class="logo w-25">
-            <img src='http://fakeimg.pl/120x60'>
-        </div>
-        <div class="nav_right w-75 d-flex justify-content-end align-content-center">
-            <ul class="m-0 p-0 list-unstyled d-flex flex-row flex-nowrap">
-                <li class="dropdown d-inline-block">
-                    <a href="">台幣</a>
-                    <div class="dropdown-content">
-                        <a href="#">英鎊</a>
-                        <a href="#">美元</a>
-                        <a href="#">日幣</a>
-                        <a href='#'>韓元</a>
+    <header class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">WoWtravel</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class=" collapse navbar-collapse " id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <ul class="navbar-nav mr-auto navbar-nav-scroll">
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        繁體中文(CN)
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">ไทย</a>
+                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="#">日本語</a>
+                        <a class="dropdown-item" href="#">한국어</a>
                     </div>
                 </li>
-                <li class="dropdown d-inline-block">
-                    <a href="">繁體中文</a>
-                    <div class="dropdown-content">
-                        <a href="#">ไทย</a>
-                        <a href="#">English</a>
-                        <a href="#">日本語</a>
-                        <a href='#'>한국어</a>
+            </ul>
+            <ul class="navbar-nav ml-auto navbar-nav-scroll">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        主選單
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">最新消息</a>
+                        <a class="dropdown-item" href="#">國內自由行</a>
+                        <a class="dropdown-item" href="#">國外自由行</a>
                     </div>
                 </li>
-                <li class="dropdown d-inline-block">
-                    <a href="">主選單</a>
-                    <div class="dropdown-content">
-                        <a href="#">最新消息</a>
-                        <a href="#">國內自由行</a>
-                        <a href="#">國外自由行</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        台幣
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">英鎊</a>
+                        <a class="dropdown-item" href="#">美元</a>
+                        <a class="dropdown-item" href="#">韓元</a>
+                        <a class="dropdown-item" href="#">日幣</a>
                     </div>
                 </li>
-                <li class="d-inline-block"><a href="#home">購物籃</a></li>
-                <li class="d-inline-block"><a href="#home">登入/註冊</a></li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">我的行程 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">登入/註冊 <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
         </div>
     </header>
@@ -299,10 +265,10 @@
 
     <!---下方為nav--->
 
-    <nav>
+    <nav id="nav">
         <div class="container">
             <div class="col">
-                <small>您的位置：<a href="#">WOW Travel</a> > <a href="#">日本自由行</a> > <a href="./index.html">產品介紹頁</a></small>
+                <small>您的位置：<a href="../../../index.html">WoW Travel</a> > <a href="../index.html">日本自由行</a> > <a href="./index.html">產品介紹頁</a></small>
             </div>
 
             <div class="col alert alert-danger alert-dismissible fade show" role="alert">
@@ -359,7 +325,7 @@
                   </select>
                 </div>
 
-                <div class="col-xl-2 col-5">🐉
+                <div class="col-xl-2 col-5">👥
                     <select class="col-10 custom-select custom-select-sm">
                       <option selected>選擇人數</option>
                       <option value="1人">1人</option>
@@ -395,11 +361,11 @@
                             <div class="m-1"><small>產品代碼 : 20210413 最少2天 1夜 ，最多1002天 1001夜</small></div>
                         </div>
 
-                        <div class="col-12">
+                        <div>
                             <div class="m-2 h5"><img src="../icon/airplane.jpg"><strong class="pl-2">交通-航空</strong></div>
                             <div class="border border-dark mb-2">
                                 <div class="m-3 h5"><strong>去程 - 請選擇</strong></div>
-                                <div class="row mb-3">
+                                <div class="row mb-3 col-12">
                                     <div class="col-xl-5 col-8">
                                         <form class="was-validated">
                                             <div class="col-11">
@@ -431,7 +397,7 @@
 
                             <div class="border border-dark m-0">
                                 <div class="m-3 h5"><strong>回程 - 請選擇</strong></div>
-                                <div class="row mb-3">
+                                <div class="row mb-3 col-12">
                                     <div class="col-xl-5 col-8">
                                         <form class="was-validated">
                                             <div class="col-11">
@@ -461,7 +427,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div>
                             <div class="m-2 h5"><img src="../icon/hotel.png"><strong class="pl-2">飯店</strong></div>
                             <div class="border border-dark">
@@ -474,7 +440,10 @@
                             </div>
                         </div>
                         <div id="recommend">
-                            <div class="m-2 h5"><img src="../icon/shopping-cart.png"><strong class="pl-2">推薦加購</strong></div>
+                            <div class="m-2 h5 d-flex flex-row justify-content-between">
+                                <div><img src="../icon/shopping-cart.png"><strong class="pl-2">推薦加購</strong></div>
+                                <div id="shopping_basket">🛒已購(<span id="number" value="0">0</span>)</div>
+                            </div>
                             <div class="d-flex flex-row justify-content-between align-items-center border border-dark">
                                 <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>推薦</small></div>
                                 <div class="ml-3 mt-1 mr-auto h5"><strong>大阪城公園 - 大阪城天守閣</strong></div>
@@ -482,7 +451,7 @@
                                     <div><span id="color_red" class="h4"><strong>TWD$2,000</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$5,000</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-secondary mr-2">選購</button></div>
+                                <div><button id="buy_1" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
                             <div class="d-flex flex-row justify-content-between align-items-center border border-dark">
                                 <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>   推薦</small></div>
@@ -491,7 +460,7 @@
                                     <div><span id="color_red" class="h4"><strong>TWD$1,000</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$9,999</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-secondary mr-2">選購</button></div>
+                                <div><button id="buy_2" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
                             <div class="d-flex flex-row align-items-center border border-dark">
                                 <div id="recommend-2" class=" ml-3 mb-0 alert alert-primary" role="alert"><small>推薦</small></div>
@@ -500,9 +469,8 @@
                                     <div><span id="color_red" class="h4"><strong>TWD$6,666</strong></span>起</div>
                                     <div id="color_gray"><del>TWD$9,999</del></div>
                                 </div>
-                                <div><button id="background-red" type="button" class="btn btn-secondary mr-2">選購</button></div>
+                                <div><button id="buy_3" onclick="add_purchase(this)" type="button" class="btn btn-danger mr-2">選購</button></div>
                             </div>
-                        </div>
                     </section>
 
                     <!---下方為aside--->
@@ -572,7 +540,7 @@
 
                         </div>
                     </aside>
-                </div>
+                    </div>
             </main>
             <main id="value">
                 <div class="col-12">
@@ -738,65 +706,94 @@
                     </section>
                 </div>
             </main>
-        </div>
+            </div>
     </article>
 
     <!---下方為footer--->
 
-    <footer class="w-100 d-flex flex-wrap">
+    <footer>
         <div class="information d-flex flex-column align-items-center">
-            <div class="info_left">
+            <div class="info_left my-3 py-2">
                 <p>即刻訂閱WoW Travel！</p>
                 <p>搶先獲得用戶限定優惠及最新熱門景點旅遊資訊！</p>
                 <p>訂閱即代表你同意我們的使用者條款和隱私權保護政策</p>
             </div>
-            <div class="mail">
+            <div class="mail ">
                 <span class="mail_icon"></span>
                 <input type="search" id="search" placeholder="請輸入您的Email!" />
                 <button type="button">訂閱</button>
             </div>
         </div>
-
         <div class="line m-0 p-4 w-100 d-flex justify-content-center">
             <hr class="m-0 w-75" size="2" noshade="noshade" />
         </div>
-        <div class="other">
-            <div class="footer_item">
-                <h3>認識 WoW Travel</h3>
-                <ul class="list-unstyled">
-                    <li><a href="">關於WOWTrave</a></li>
-                    <li><a href="">使用者條款</a></li>
-                    <li><a href="">隱私權保護政策</a></li>
-                    <li><a href="">常見問題與幫助</a></li>
-                    <li><a href="">媒體報導</a></li>
-                </ul>
+        <div class="footer_h3 col-md-12 col-sm-12 my-4">
+            <h3>追蹤我們</h3>
+            <div class='d-flex justify-content-center my-2'>
+                <a href="#"> <i class="fab fa-line p-2" style="font-size: 2em; color: rgb(255, 255, 255)"></i></a>
+                <a href="#"> <i class="fab fa-facebook p-2" style="font-size: 2em; color: rgb(255, 255, 255)"></i></a>
+                <a href="#"><i class="fab fa-twitter p-2" style="font-size: 2em; color: rgb(240, 231, 230)"></i></a>
+                <a href="#"><i class="fab fa-youtube p-2" style="font-size: 2em; color: rgb(240, 231, 230)"></i></a>
+                <a href="#"><i class="fab fa-instagram p-2" style="font-size: 2em; color: rgb(240, 231, 230)"></i></a>
             </div>
-            <div class="footer_item">
-                <h3>給旅人</h3>
-                <ul class="list-unstyled">
-                    <li><a href="">三大保證</a></li>
-                    <li><a href="">合作夥伴</a></li>
-                    <li><a href="">官方部落格</a></li>
-                    <li><a href="">會員好禮</a></li>
-                    <li><a href="">兌換贈品</a></li>
-                </ul>
-            </div>
-            <div class="footer_item">
-                <h3>合作夥伴</h3>
-                <ul class="list-unstyled">
-                    <li><a href="">聯盟行銷</a></li>
-                    <li><a href="">成為供應商</a></li>
-                    <li><a href="">供應商登入</a></li>
-                    <li><a href="">同業合作</a></li>
-                    <li><a href="">人才招募</a></li>
-                </ul>
-            </div>
+
         </div>
-        <div class="line p-4 w-100 d-flex justify-content-center">
-            <hr class="m-0 w-75" size="2" noshade="noshade" />
+        <div class="container">
+            <div class="row footer_row ">
+                <div class="col-md-4 col-sm-4 my-4">
+                    <ul class="footer_link ">
+                        <h3>認識WOWTravel</h3>
+                        <li><a href="">關於WOWTrave</a></li>
+                        <li><a href="">使用者條款</a></li>
+                        <li><a href="">隱私權保護政策</a></li>
+                        <li><a href="">常見問題與幫助</a></li>
+                        <li><a href="">媒體報導</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4 my-4">
+                    <ul class="footer_link ">
+                        <h3>給旅人</h3>
+                        <li><a href="">三大保證</a></li>
+                        <li><a href="">合作夥伴</a></li>
+                        <li><a href="">官方部落格</a></li>
+                        <li><a href="">會員好禮</a></li>
+                        <li><a href="">兌換贈品</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-4 my-4">
+                    <ul class="footer_link">
+                        <h3>合作夥伴</h3>
+                        <li><a href="">聯盟行銷</a></li>
+                        <li><a href="">成為供應商</a></li>
+                        <li><a href="">供應商登入</a></li>
+                        <li><a href="">同業合作</a></li>
+                        <li><a href="">人才招募</a></li>
+                    </ul>
+                </div>
+                <div class="footer_bottom col-md-12 col-sm-12 my-4">
+                    &copy;copyright 2021 by wow3cteam
+                </div>
+            </div>
         </div>
     </footer>
+    <script>
+        var x = 0
 
+        function add_purchase(obj) {
+            if (document.getElementById(obj.id).innerHTML == "選購") {
+                x++;
+                document.getElementById("number").innerHTML = x;
+                document.getElementById(obj.id).innerHTML = "已選購";
+                document.getElementById(obj.id).style = "background-color:gray;box-shadow:none";
+            } else {
+                x--;
+                document.getElementById("number").innerHTML = x;
+                document.getElementById(obj.id).innerHTML = "選購";
+                document.getElementById(obj.id).style = "background-color:#dc3545;box-shadow:2px, #dc3545";
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
