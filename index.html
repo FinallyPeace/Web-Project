@@ -313,6 +313,7 @@
         }
     </style>
     <script>
+
         // GoTop
         $(document).ready(function () {
             $("#goTop").click(function () {
@@ -330,25 +331,42 @@
                 }
             });
 
-            //加入行程
+            // 加入行程
+            var sum = 0;
+            var money = 0;
 
+
+            // 計算行程總金額
             $(".add-to-cart").click(function () {
-                if ($(this).text() == "加入行程") {
+                money = parseInt($(this).val());
+                var thousands = "";
+                var text = "";
+                console.log(money);
+                if ($(this).text() === "加入行程") {
                     $(this).text("✔ 已加入");
-                    $(this).css("background-color", "rgb(247, 239, 140)");
-                    $(this).css("color", "rgb(38, 62, 133)")
-                    sum += parseInt($(this).val());
-                    thousands = sum.toLocaleString();
-                    $("#result").text(thousands);
+                    $(this).css('background','rgb(247, 239, 140)');
+                    $(this).css('color','rgb(38, 62, 133)');
+                    console.log(money);
+                    sum += money;
+                    console.log(typeof(sum));
+                    thousands = sum.toString();
+                    console.log(thousands);
+                    $(".result").text(thousands);
+                    // text = "<a class='dropdown-item'>【東京】 淺草雷門 $" + money + "</a>";
+
+                    text = "<a class='dropdown-item'>" + $(this).parents(".text_item").find(".title-card").text() + " $" + thousands + "</a>";
+                    $(".money").before(text);
                 } else if ($(this).text() == "✔ 已加入") {
                     $(this).text("加入行程");
-                    $(this).css("background-color", "rgb(38, 62, 133)");
-                    $(this).css("color", "white")
-                    sum -= parseInt($(this).val());
+                    $(this).css('background','rgb(38, 62, 133)')
+                    $(this).css('color','white')
+                    sum -= money;
                     thousands = sum.toLocaleString();
-                    $("#result").text(thousands);
+                    $(".result").text(thousands);
+
+                    // $(this).before(text).remove();
                 } else {
-                    $("#result").text("有內鬼，終止交易！");
+                    $(".result").text("有內鬼，終止交易！");
                 }
             });
 
@@ -372,6 +390,8 @@
             });
 
         });
+
+
 
 
     </script>
@@ -427,6 +447,20 @@
             </ul>
             <ul class="navbar-nav ml-auto navbar-nav-scroll">
                 <li class="nav-item dropdown">
+                    <a class="myCart nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white">
+                        我的行程
+                    </a>
+                    <div class="myCartList dropdown-menu " aria-labelledby="navbarDropdown">
+
+                        <a class="money dropdown-item">
+                            <span class="text-muted">TWD&nbsp;</span>
+                            <span class="result">0</span>
+                        </a>
+                        <a class="dropdown-item text-right" href="./list/index.html">去結帳</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         主選單
@@ -450,9 +484,7 @@
                         <a class="dropdown-item" href="#">¥日幣</a>
                     </div>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">我的行程 <span class="sr-only">(current)</span></a>
-                </li>
+                
                 <li class="nav-item active">
                     <a class="nav-link" href="#">登入/註冊 <span class="sr-only">(current)</span></a>
                 </li>
@@ -729,7 +761,7 @@
                 <div class="card card-block">
                     <img src="./image/Cingjing-1.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 南投║清境農場‧合歡山超值二日遊 (10:00 天天出發)</h4>
+                        <h4 class='title-card'> 南投║清境農場~合歡山超值二日遊 (10:00 天天出發)</h4>
                         <p id='hot'>🔥156K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD1299</del> <span
@@ -737,8 +769,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold"
+                                value=899>加入行程</button>
                         </p>
 
                     </div>
@@ -756,8 +788,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='1599'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -774,8 +806,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='1699'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -792,8 +824,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='999'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -820,7 +852,7 @@
                 <div class="card">
                     <img src="./image/new-zealand-1450672_1280.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 紐西蘭║北島、南島五大必去，欣賞紐西蘭渾然天成的美景</h4>
+                        <h4 class='title-card'> 紐西蘭║北島、南島五大必去~欣賞紐西蘭渾然天成的美景</h4>
                         <p id='hot'>🔥136K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD39800</del> <span
@@ -828,8 +860,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='32000'>加入行程</button>
                         </p>
                     </div>
 
@@ -839,7 +871,7 @@
                 <div class="card ">
                     <img src="./image/Busan.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 釜山║四天三夜行程規劃，西面、海雲台、甘川洞文化村一次玩透！</h4>
+                        <h4 class='title-card'> 釜山║西面、海雲台、甘川洞文化村~一次玩透！四天三夜行程規劃</h4>
                         <p id='hot'>🔥75K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD22800</del> <span
@@ -847,8 +879,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='18900'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -857,7 +889,7 @@
                 <div class="card">
                     <img src="./image/Chiang Mai.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 清邁║五天四夜行程規劃，古城區、清萊通通玩遍</h4>
+                        <h4 class='title-card'> 清邁║古城區、清萊~通通玩遍，五天四夜行程規劃</h4>
                         <p id='hot'>🔥49K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD28999</del> <span
@@ -865,8 +897,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='22999'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -875,7 +907,7 @@
                 <div class="card">
                     <img src="./image/Sabah.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
-                        <h4 class='title-card'> 沙巴║五天四夜行程規劃，跳島、紅樹林通通玩遍</h4>
+                        <h4 class='title-card'> 沙巴║跳島、紅樹林~通通玩遍，五天四夜行程規劃</h4>
                         <p id='hot'>🔥25K+已訂購</p>
                         <p class='text-right' style='font-size: 1.5em;'> <del
                                 style='font-size: 0.1em;padding: 0px 5px;'>TWD29800</del> <span
@@ -883,8 +915,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='24600'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -919,8 +951,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='999'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -937,8 +969,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='1130'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -955,8 +987,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='750'>加入行程</button>
                         </p>
                     </div>
                 </div>
@@ -973,8 +1005,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <span
-                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
+                            <button
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold" value='32000'>加入行程</button>
                         </p>
                     </div>
                 </div>
