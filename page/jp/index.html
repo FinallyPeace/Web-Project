@@ -166,23 +166,28 @@
                 money = parseInt($(this).val());
                 var thousands = "";
                 var text = "";
+                var idNameArr = "";
+                var idName = "";
 
                 if ($(this).text() == "加入行程") {
                     $(this).text("✔ 已加入");
                     sum += money;
                     thousands = sum.toLocaleString();
                     $(".result").text(thousands);
-                    // text = "<a class='dropdown-item'>【東京】 淺草雷門 $" + money + "</a>";
+
+                    idNameArr = $(this).parents(".card-body").find(".card-title").text().split(' ');
+                    text = "<a id='" + idNameArr[1] + "' class='dropdown-item'>" + $(this).parents(".card-body").find(".card-title").text() + " $" + money + "</a>";
                     
-                    text = "<a class='dropdown-item'>" + $(this).parents(".card-body").find(".card-title").text() + " $" + money + "</a>";
                     $(".money").before(text);
                 } else if ($(this).text() == "✔ 已加入") {
                     $(this).text("加入行程");
                     sum -= money;
                     thousands = sum.toLocaleString();
                     $(".result").text(thousands);
-
-                    // $(this).before(text).remove();
+                    
+                    idNameArr = $(this).parents(".card-body").find(".card-title").text().split(' ');
+                    idName = "#" + idNameArr[1];
+                    $(idName).remove();
                 } else {
                     $(".result").text("有內鬼，終止交易！");
                 }
