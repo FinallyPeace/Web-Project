@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Wow Travel</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <style>
-
-         .full-screen {
+        .full-screen {
             position: fixed;
             top: 0;
             left: 0;
@@ -31,7 +31,7 @@
             justify-content: center;
             align-items: center;
 
-        } 
+        }
 
         .full-screen .text {
             width: 90%;
@@ -125,6 +125,13 @@
 
         /* artical */
 
+        #us span,
+        #au span,
+        #ch span {
+            display: none;
+        }
+
+
         .jp_item,
         .jp_item_sm,
         .au_item,
@@ -212,6 +219,7 @@
             font-weight: bold;
             background-color: rgb(38, 62, 133);
             border-radius: 5px;
+            transition: all .7s 0s ease;
         }
 
 
@@ -230,6 +238,7 @@
             font-size: larger;
         }
 
+
         .title-card {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -242,28 +251,24 @@
             margin: 5px 0px;
         }
 
-        .btn-right {
+        .add-to-cart {
             background-color: rgb(38, 62, 133);
-            color: rgb(255, 255, 255);
+            color: white;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            color: rgb(38, 62, 133);
+            background-color: rgb(247, 239, 140);
         }
 
         .btn-left {
             background-color: rgb(226, 226, 226);
+            transition: all 0.3s 0s ease
         }
 
-        .btn-left:hover {
-            background-color: rgb(247, 239, 140);
-            color: rgb(38, 62, 133);
-        }
-
-
-        .btn-right:hover {
-            background-color: rgb(247, 239, 140);
-            color: rgb(38, 62, 133);
-        }
 
         /* footer */
-
 
         footer {
             background-color: rgb(27, 27, 27);
@@ -286,30 +291,114 @@
             text-decoration: none;
             color: white
         }
+
+        #goTop {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            color: white;
+            background: rgb(84, 110, 187, .6);
+            line-height: 50px;
+            border-radius: 50%;
+            transition: all 0.7s;
+            text-align: center;
+        }
+
+        #goTop:hover {
+            background: rgb(84, 110, 187);
+        }
     </style>
+    <script>
+        // GoTop
+        $(document).ready(function () {
+            $("#goTop").click(function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 'slow');
+                return false;
+            });
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 830) {
+                    $('#goTop').fadeIn(500);
+                } else {
+                    $('#goTop').fadeOut(500);
+                }
+            });
+
+            //加入行程
+
+            $(".add-to-cart").click(function () {
+                if ($(this).text() == "加入行程") {
+                    $(this).text("✔ 已加入");
+                    $(this).css("background-color", "rgb(247, 239, 140)");
+                    $(this).css("color", "rgb(38, 62, 133)")
+                    sum += parseInt($(this).val());
+                    thousands = sum.toLocaleString();
+                    $("#result").text(thousands);
+                } else if ($(this).text() == "✔ 已加入") {
+                    $(this).text("加入行程");
+                    $(this).css("background-color", "rgb(38, 62, 133)");
+                    $(this).css("color", "white")
+                    sum -= parseInt($(this).val());
+                    thousands = sum.toLocaleString();
+                    $("#result").text(thousands);
+                } else {
+                    $("#result").text("有內鬼，終止交易！");
+                }
+            });
+
+            //article
+
+            $("#us").click(function () {
+                $(".nav-link span").hide();
+                $(".us-show").show();
+            });
+            $("#ch").click(function () {
+                $(".nav-link span").hide();
+                $(".ch-show").show()
+            });
+            $("#au").click(function () {
+                $(".nav-link span").hide();
+                $(".au-show").show()
+            });
+            $("#jp").click(function () {
+                $(".nav-link span").hide();
+                $(".jp-show").show();
+            });
+
+        });
+
+
+    </script>
 </head>
 
 <body class="container-fluid m-0 p-0">
+    <a href="#" id="goTop">
+        <i class="fas fa-angle-double-up"></i>
+    </a>
 
     <!-- nav -->
 
     <div class="full-screen alert alert-danger alert-dismissible fade show" role="alert">
         <div class="text">
-            <div class="close">  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button></div>
-            <h4 class='font-weight-bold'style="color: rgb(255, 0, 51);">防疫小提醒</h4>
+            <div class="close"> <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>
+            <h4 class='font-weight-bold' style="color: rgb(255, 0, 51);">防疫小提醒</h4>
             <p class='p-2'>即日起八大場所全面強制要求戴口罩，包含<span>醫療照顧機構、大眾運輸、賣場市集、教育學習場所、展演場所、宗教場所、娛樂場所、大型活動</span>等，提醒民眾務必配合。
             </p>
-            <p >《小提醒》</br><span class='p-2'>▲國人在離島台灣好行、交通船或巴士仍有未戴口罩之情形，如有不戴或屢勸不聽者最高可罰款一萬五仟元。 更多防疫即時資訊可參考<a
-                    href="https://www.cdc.gov.tw/">衛生福利部疾病管制署</a>網頁</span></p>
+            <p>《小提醒》</br><span class='p-2'>▲國人在離島台灣好行、交通船或巴士仍有未戴口罩之情形，如有不戴或屢勸不聽者最高可罰款一萬五仟元。 更多防疫即時資訊可參考<a
+                        href="https://www.cdc.gov.tw/">衛生福利部疾病管制署</a>網頁</span></p>
         </div>
     </div>
 
     <nav class="navbar navbar-expand-lg bg-color navbar-dark fixed-top">
-        <a class="navbar-brand d-flex justify-content-center" href="#">W<div class="logo">
-                <div class='nav_circle'></div>
-            </div>WTravel</a>
+        <a class="navbar-brand d-flex justify-content-center" href="#">WoWTravel</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -346,6 +435,7 @@
                         <a class="dropdown-item" href="#">最新消息</a>
                         <a class="dropdown-item" href="#">國內自由行</a>
                         <a class="dropdown-item" href="#">國外自由行</a>
+                        <a class="dropdown-item" href="#">常見問題</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -354,10 +444,10 @@
                         台幣
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">英鎊</a>
-                        <a class="dropdown-item" href="#">美元</a>
-                        <a class="dropdown-item" href="#">韓元</a>
-                        <a class="dropdown-item" href="#">日幣</a>
+                        <a class="dropdown-item" href="#">£英鎊</a>
+                        <a class="dropdown-item" href="#">$美元</a>
+                        <a class="dropdown-item" href="#">₩韓元</a>
+                        <a class="dropdown-item" href="#">¥日幣</a>
                     </div>
                 </li>
                 <li class="nav-item active">
@@ -449,113 +539,22 @@
             </div>
         </div>
     </aside>
-    <!-- <div class="container">
-        <div id="multi-item-example" class="carousel slide carousel-multi-item " data-ride="carousel">
-            <div class="controls-left">
-                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
-                        class="fas fa-angle-double-left"></i></a>
-                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                        class="fas fa-angle-double-right"></i></a>
-            </div>
-            <ol class="carousel-indicators">
-                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-                <li data-target="#multi-item-example" data-slide-to="1"></li>
 
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">必逛景點</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">美食小吃</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">shopping享樂</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">交通票卷</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Card title</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-top" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Card title</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-left" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Card title</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3" style="float:left">
-                        <div class="card mb-2">
-                            <img class="card-img-left" src="image/tw_north.jpg" alt="Card image cap">
-                            <div class="card-body">
-                                <h4 class="card-title">Card title</h4>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-    </div> -->
 
     <!-- article -->
 
     <article class="container my-4 pb-5">
         <div class="row justify-content-center my-3 ">
-            <div class="text h1">吃喝玩樂自由配</div>
+            <div class="text h1">吃喝玩樂🍖自由配</div>
         </div>
 
         <div class="nav nav-tabs d-flex justify-content-center " id="navTab" role="tablist">
-            <a class="nav-link active" data-toggle='tab' id='jp' aria-current="page" href="#jpTab">日本</a>
-            <a class="nav-link " data-toggle='tab' id='us' href="#usTab">美國</a>
-            <a class="nav-link" data-toggle='tab' id='au' href="#auTab">澳大利亞</a>
-            <a class="nav-link" data-toggle='tab' id='ch' href="#chTab">中國</a>
+            <a class="nav-link active" data-toggle='tab' id='jp' aria-current="page" href="#jpTab">日本<span
+                    class='jp-show'>-にっぽん意猶未盡的旅程</span></a>
+            <a class="nav-link " data-toggle='tab' id='us' href="#usTab">美國<span
+                    class='us-show'>-精彩freestyle🏈</span></a>
+            <a class="nav-link" data-toggle='tab' id='au' href="#auTab">澳大利亞<span class='au-show'>-🐨探訪奇珍異獸</span></a>
+            <a class="nav-link" data-toggle='tab' id='ch' href="#chTab">中國<span class='ch-show'>-曠古悠久的秘史探索📷</span></a>
         </div>
         <div class="tab-content mb-5" id="myTabContent">
             <div class="tab-pane fade show active" id="jpTab" role="tabpanel" aria-labelledby="jp-tab">
@@ -565,7 +564,7 @@
                             style="width: 100%;height: 413px;border-radius: 5PX;">
                         <div class="jp_text">
                             <h2>日本特輯</h2>
-                            <a href='#'>
+                            <a href='./page/jp/index.html'>
                                 <p>#必逛景點</p>
                             </a>
                         </div>
@@ -575,7 +574,7 @@
                                 style="width: 100%;height: 200px;border-radius: 5PX;">
                             <div class="jp_text_sm">
                                 <h2 class='mt-5'>日本特輯</h2>
-                                <a href='#'>
+                                <a href='./page/jp/index.html'>
                                     <p>#日本必吃</p>
                                 </a>
                             </div>
@@ -584,7 +583,7 @@
                                 style="width: 100%;height: 195px;border-radius: 5PX;">
                             <div class="jp_text_sm">
                                 <h2 class='mt-5'>日本特輯</h2>
-                                <a href='#'>
+                                <a href='./page/jp/index.html'>
                                     <p>#經典樂園</p>
                                 </a>
                             </div>
@@ -723,8 +722,10 @@
             <div class="list mx-2 p-2"><a href="">東台灣</a></div>
             <a class="list_ex mx-3 p-2" href="">離島地區</a>
         </div>
+
+
         <div class="row">
-            <div class="col-12 col-md-3 mt-3 mb-5 pb-5">
+            <div class="col-12 col-md-3 my-3">
                 <div class="card card-block">
                     <img src="./image/Cingjing-1.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
@@ -736,7 +737,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
 
                     </div>
@@ -754,7 +756,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -771,7 +774,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -788,15 +792,17 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
     <section class="container ">
-        <div class="row justify-content-center my-2 ">
+        <div class="row justify-content-center my-3 ">
             <div class="text h1">樂遊全世界✈️</div>
         </div>
         <div class="row d-flex justify-content-center mt-4">
@@ -810,7 +816,7 @@
             <div class="list mx-2 p-2"><a href="">大洋洲</a></div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-3 mt-3 mb-5 pb-5">
+            <div class="col-12 col-md-3 my-3">
                 <div class="card">
                     <img src="./image/new-zealand-1450672_1280.jpg" style="width: 100%;height: 180px;">
                     <div class='text_item p-1'>
@@ -822,7 +828,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
 
@@ -840,7 +847,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -857,7 +865,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -874,7 +883,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-3">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -909,7 +919,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -926,7 +937,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -943,7 +955,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -960,7 +973,8 @@
                         <p class="card-text d-flex justify-content-around align-items-end mb-2">
                             <a href="./page/tw/index.html"
                                 class="btn btn-left col-5 text-decoration-none font-weight-bold ">詳細行程</a>
-                            <a href="" class="btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</a>
+                            <span
+                                class="add-to-cart btn btn-right col-5 text-decoration-none font-weight-bold">加入行程</span>
                         </p>
                     </div>
                 </div>
@@ -1000,7 +1014,7 @@
         <div class="container">
             <div class="row footer_row ">
 
-                <div class="col-md-3 col-3 my-4">
+                <div class="col-md-3 col-12 my-4">
                     <ul class="footer_link ">
                         <h3>給旅人</h3>
                         <li><a href="">三大保證</a></li>
@@ -1010,7 +1024,7 @@
                         <li><a href="">兌換贈品</a></li>
                     </ul>
                 </div>
-                <div class="col-md-5 col-5 my-4">
+                <div class="col-md-5 col-12 my-4">
                     <ul class="footer_link text-center">
                         <h3>認識WoWTravel</h3>
                         <li><a href="">關於WOWTrave</a></li>
@@ -1020,7 +1034,7 @@
                         <li><a href="">媒體報導</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-3 my-4">
+                <div class="col-md-3 col-12 my-4">
                     <ul class="footer_link">
                         <h3>合作夥伴</h3>
                         <li><a href="">聯盟行銷</a></li>
@@ -1036,29 +1050,11 @@
             </div>
         </div>
     </footer>
-
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-        $(document).ready(function () {
-            $('.close').click(function () {
-                $('.full-screen').hide();
-            })
-        })
-    </script> -->
-    <script src="js/jquery.min.js">
-        $(document).ready(function () {
-            $('.close').click(function () {
-                $('.full-screen').hide();
-            })
-        })
-
-    </script>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
