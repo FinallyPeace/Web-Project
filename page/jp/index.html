@@ -99,10 +99,6 @@
             flag++;
         }
 
-        // 加入行程
-        var sum = 0;
-        var money = 0;
-
         $(document).ready(function() {
             // code
             $(".search").click(function() {
@@ -116,6 +112,9 @@
             });
 
             // 計算行程總金額
+            var sum = 0;
+            var money = 0;
+
             $(".add-to-cart").click(function() {
                 money = parseInt($(this).val());
                 var thousands = "";
@@ -130,8 +129,7 @@
                     $(".result").text(thousands);
 
                     idNameArr = $(this).parents(".card-body").find(".card-title").text().split(' ');
-                    text = "<a id='" + idNameArr[1] + "' class='dropdown-item'>" + $(this).parents(".card-body").find(".card-title").text() + " $" + money + "</a>";
-
+                    text = "<a id='" + idNameArr[idNameArr.length-1] + "' class='dropdown-item'>" + $(this).parents(".card-body").find(".card-title").text() + " $" + money + "</a>";
                     $(".money").before(text);
                 } else if ($(this).text() == "✔ 已加入") {
                     $(this).text("加入行程");
@@ -140,7 +138,7 @@
                     $(".result").text(thousands);
 
                     idNameArr = $(this).parents(".card-body").find(".card-title").text().split(' ');
-                    idName = "#" + idNameArr[1];
+                    idName = "#" + idNameArr[idNameArr.length-1];
                     $(idName).remove();
                 } else {
                     $(".result").text("有內鬼，終止交易！");
@@ -148,8 +146,8 @@
             });
 
             // 防止myCart 關閉
-            // $("input, label").on('click', function(e) {
-            //     e.stopPropagation();
+            // $(".myCart").click(function() {
+            //     $('.myCartList').stopPropagation();
             // });
 
             // hashtag
@@ -455,7 +453,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/在地美食小吃_拉麵.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">【大阪】 拉麵</h5>
+                        <h5 class="card-title">【大阪】 道頓堀 拉麵</h5>
                         <p class="card-text">
                             大阪道頓堀可說是日本著名的「拉麵激戰區」，大街小巷中隱藏了許多拉麵神店，WoW Travel 不藏私一一報給您。
                         </p>
@@ -531,7 +529,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/購物_百貨.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">百貨</h5>
+                        <h5 class="card-title">【日本】 百貨商場</h5>
                         <p class="card-text">
                             百貨公司通常都會在日本的各大主要都市設店，甚至可以說是絕對少不了的。從化妝品、食品及服飾雜貨讓您一次掌握。
                         </p>
@@ -546,7 +544,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/購物_唐吉軻德.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">唐吉軻德</h5>
+                        <h5 class="card-title">【日本】 唐吉軻德</h5>
                         <p class="card-text">
                             日本知名雜貨店唐吉軻德，有多種商品等著大家來挖寶！WoW Travel 幫各位整理了必買的零食、泡麵和生鮮雜貨，讓您不再頭昏眼花。
                         </p>
@@ -562,7 +560,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/購物_藥妝.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">藥妝</h5>
+                        <h5 class="card-title">【日本】 藥妝</h5>
                         <p class="card-text">
                             日本藥品法規很嚴格，副作用通常都不會太大，感冒藥、腸胃藥、痠痛貼布、彩妝、面膜洗面乳⋯等，可說是旅日必買哦！
                         </p>
@@ -639,7 +637,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/交通_新幹線.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">新幹線</h5>
+                        <h5 class="card-title">【日本】 新幹線</h5>
                         <p class="card-text">
                             新幹線可以讓你在意想不到的短時間內四處旅行，旅途中還能舒適地坐在乾淨舒適的位子上好好放鬆呢！
                         </p>
@@ -654,7 +652,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/交通_ICOCA.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">ICOCA</h5>
+                        <h5 class="card-title">【日本】 ICOCA</h5>
                         <p class="card-text">
                             ICOCA就像是台灣的「悠遊卡」和「一卡通」，每次搭乘大眾交通工具只需朝感應機碰一下，就能輕鬆地搭車及購物。
                         </p>
@@ -669,7 +667,7 @@
                 <div class="card">
                     <img class="card-img-top" src="image/交通_大阪周遊卡.jpg" style="width: 100%;">
                     <div class="card-body">
-                        <h5 class="card-title">大阪周遊卡</h5>
+                        <h5 class="card-title">【大阪】 周遊卡</h5>
                         <p class="card-text">
                             1天內可無限次搭乘大阪地鐵、大阪公車全線或指定範圍內私鐵路線，並可免費參觀50處以上著名景點及設施。
                         </p>
@@ -698,12 +696,15 @@
         <div class="mt-4 px-0 col-12 col-lg-6 align-self-end">
             <div class="card">
                 <div class="card-body">
-                    <div class="card-text d-flex flex-column">
-                        <h5 class="card-title">此趟旅費大略金額試算：</h5>
-                        <p class="mb-1 align-self-end" style="font-size: larger;">
-                            <span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>
-                            <span class="result">0</span>
-                        </p>
+                    <h5 class="card-title">此趟旅費大略金額試算：</h5>
+                    <div class="card-text d-flex flex-column justify-content-end">
+                        <div class="d-flex justify-content-end">
+                            <p class="m-0 mr-3 pt-1" style="font-size: larger;">
+                                <span class="text-muted" style="font-size: medium;">TWD&nbsp;</span>
+                                <span class="result">0</span>
+                            </p>
+                            <a href="./list/index.html" class="to-cart btn btn-link text-decoration-none" style="color:#fff; background-color: rgb(38, 62, 133);">去結帳</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -777,7 +778,6 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
